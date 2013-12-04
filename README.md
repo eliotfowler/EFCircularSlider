@@ -15,6 +15,8 @@ Adding EFCircularSlider to your project is as simple as getting the source files
 CGRect sliderFrame = CGRectMake(110, 150, 100, 100);
     EFCircularSlider* circularSlider = [[EFCircularSlider alloc] initWithFrame:sliderFrame];
     [self.view addSubview:circularSlider];
+    ...
+}
 ```
 
 Customizing
