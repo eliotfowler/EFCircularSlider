@@ -28,7 +28,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) UIColor* unfilledColor;
 @property (nonatomic) HandleType handleType;
 
--(void)setHandleColor:(UIColor*)color;
 -(void)setInnerMarkingLabels:(NSArray*)labels;
 
 @end

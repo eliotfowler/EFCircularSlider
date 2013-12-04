@@ -25,21 +25,20 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
-        _maximumValue = 12.0f;
+        // Defaults
+        _maximumValue = 100.0f;
         _minimumValue = 0.0f;
         _currentValue = 0.0f;
-        angle = 0;
-        
         _lineWidth = 5;
-        radius = self.frame.size.height/2 - _lineWidth/2 - 10;
         _unfilledColor = [UIColor blueColor];
         _filledColor = [UIColor redColor];
-        _handleColor = [UIColor redColor];
+        _handleColor = _filledColor;
         _labelFont = [UIFont systemFontOfSize:10.0f];
-        labelsEvenSpacing = @[@"12", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11"];
-        _snapToLabels = YES;
+        _snapToLabels = NO;
         _handleType = doubleCircleWithOpenCenter;
+        
+        angle = 0;
+        radius = self.frame.size.height/2 - _lineWidth/2 - 10;
         
         self.backgroundColor = [UIColor clearColor];
     }
@@ -161,7 +160,7 @@
 
 -(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
     [super endTrackingWithTouch:touch withEvent:event];
-    if(_snapToLabels) {
+    if(_snapToLabels && labelsEvenSpacing != nil) {
         CGPoint bestGuessPoint;
         float minDist = 360;
         for (int i=0; i<[labelsEvenSpacing count]; i++) {
