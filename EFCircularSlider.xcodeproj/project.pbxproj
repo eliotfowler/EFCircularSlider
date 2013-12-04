@@ -1,0 +1,490 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		73AA222A184F85BF0019641B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA2229184F85BF0019641B /* Foundation.framework */; };
+		73AA222C184F85BF0019641B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA222B184F85BF0019641B /* CoreGraphics.framework */; };
+		73AA222E184F85BF0019641B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA222D184F85BF0019641B /* UIKit.framework */; };
+		73AA2234184F85BF0019641B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73AA2232184F85BF0019641B /* InfoPlist.strings */; };
+		73AA2236184F85BF0019641B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AA2235184F85BF0019641B /* main.m */; };
+		73AA223A184F85BF0019641B /* EFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AA2239184F85BF0019641B /* EFAppDelegate.m */; };
+		73AA223D184F85BF0019641B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73AA223B184F85BF0019641B /* Main.storyboard */; };
+		73AA2240184F85BF0019641B /* EFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AA223F184F85BF0019641B /* EFViewController.m */; };
+		73AA2242184F85BF0019641B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73AA2241184F85BF0019641B /* Images.xcassets */; };
+		73AA2249184F85BF0019641B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA2248184F85BF0019641B /* XCTest.framework */; };
+		73AA224A184F85BF0019641B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA2229184F85BF0019641B /* Foundation.framework */; };
+		73AA224B184F85BF0019641B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA222D184F85BF0019641B /* UIKit.framework */; };
+		73AA2253184F85BF0019641B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73AA2251184F85BF0019641B /* InfoPlist.strings */; };
+		73AA2255184F85BF0019641B /* EFCircularSliderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AA2254184F85BF0019641B /* EFCircularSliderTests.m */; };
+		73AA2261184F861C0019641B /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AA2260184F861C0019641B /* EFCircularSlider.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		73AA224C184F85BF0019641B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73AA221E184F85BF0019641B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73AA2225184F85BF0019641B;
+			remoteInfo = EFCircularSlider;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		73AA2226184F85BF0019641B /* EFCircularSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EFCircularSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		73AA2229184F85BF0019641B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		73AA222B184F85BF0019641B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		73AA222D184F85BF0019641B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		73AA2231184F85BF0019641B /* EFCircularSlider-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EFCircularSlider-Info.plist"; sourceTree = "<group>"; };
+		73AA2233184F85BF0019641B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		73AA2235184F85BF0019641B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		73AA2237184F85BF0019641B /* EFCircularSlider-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EFCircularSlider-Prefix.pch"; sourceTree = "<group>"; };
+		73AA2238184F85BF0019641B /* EFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EFAppDelegate.h; sourceTree = "<group>"; };
+		73AA2239184F85BF0019641B /* EFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EFAppDelegate.m; sourceTree = "<group>"; };
+		73AA223C184F85BF0019641B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		73AA223E184F85BF0019641B /* EFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EFViewController.h; sourceTree = "<group>"; };
+		73AA223F184F85BF0019641B /* EFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EFViewController.m; sourceTree = "<group>"; };
+		73AA2241184F85BF0019641B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		73AA2247184F85BF0019641B /* EFCircularSliderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EFCircularSliderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		73AA2248184F85BF0019641B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		73AA2250184F85BF0019641B /* EFCircularSliderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EFCircularSliderTests-Info.plist"; sourceTree = "<group>"; };
+		73AA2252184F85BF0019641B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		73AA2254184F85BF0019641B /* EFCircularSliderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EFCircularSliderTests.m; sourceTree = "<group>"; };
+		73AA225F184F861C0019641B /* EFCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFCircularSlider.h; sourceTree = "<group>"; };
+		73AA2260184F861C0019641B /* EFCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFCircularSlider.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		73AA2223184F85BF0019641B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73AA222C184F85BF0019641B /* CoreGraphics.framework in Frameworks */,
+				73AA222E184F85BF0019641B /* UIKit.framework in Frameworks */,
+				73AA222A184F85BF0019641B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73AA2244184F85BF0019641B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73AA2249184F85BF0019641B /* XCTest.framework in Frameworks */,
+				73AA224B184F85BF0019641B /* UIKit.framework in Frameworks */,
+				73AA224A184F85BF0019641B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		73AA221D184F85BF0019641B = {
+			isa = PBXGroup;
+			children = (
+				73AA222F184F85BF0019641B /* EFCircularSlider */,
+				73AA224E184F85BF0019641B /* EFCircularSliderTests */,
+				73AA2228184F85BF0019641B /* Frameworks */,
+				73AA2227184F85BF0019641B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		73AA2227184F85BF0019641B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				73AA2226184F85BF0019641B /* EFCircularSlider.app */,
+				73AA2247184F85BF0019641B /* EFCircularSliderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		73AA2228184F85BF0019641B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73AA2229184F85BF0019641B /* Foundation.framework */,
+				73AA222B184F85BF0019641B /* CoreGraphics.framework */,
+				73AA222D184F85BF0019641B /* UIKit.framework */,
+				73AA2248184F85BF0019641B /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		73AA222F184F85BF0019641B /* EFCircularSlider */ = {
+			isa = PBXGroup;
+			children = (
+				73AA225E184F85D30019641B /* EFCircularSlider */,
+				73AA2238184F85BF0019641B /* EFAppDelegate.h */,
+				73AA2239184F85BF0019641B /* EFAppDelegate.m */,
+				73AA223B184F85BF0019641B /* Main.storyboard */,
+				73AA223E184F85BF0019641B /* EFViewController.h */,
+				73AA223F184F85BF0019641B /* EFViewController.m */,
+				73AA2241184F85BF0019641B /* Images.xcassets */,
+				73AA2230184F85BF0019641B /* Supporting Files */,
+			);
+			path = EFCircularSlider;
+			sourceTree = "<group>";
+		};
+		73AA2230184F85BF0019641B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				73AA2231184F85BF0019641B /* EFCircularSlider-Info.plist */,
+				73AA2232184F85BF0019641B /* InfoPlist.strings */,
+				73AA2235184F85BF0019641B /* main.m */,
+				73AA2237184F85BF0019641B /* EFCircularSlider-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		73AA224E184F85BF0019641B /* EFCircularSliderTests */ = {
+			isa = PBXGroup;
+			children = (
+				73AA2254184F85BF0019641B /* EFCircularSliderTests.m */,
+				73AA224F184F85BF0019641B /* Supporting Files */,
+			);
+			path = EFCircularSliderTests;
+			sourceTree = "<group>";
+		};
+		73AA224F184F85BF0019641B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				73AA2250184F85BF0019641B /* EFCircularSliderTests-Info.plist */,
+				73AA2251184F85BF0019641B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		73AA225E184F85D30019641B /* EFCircularSlider */ = {
+			isa = PBXGroup;
+			children = (
+				73AA225F184F861C0019641B /* EFCircularSlider.h */,
+				73AA2260184F861C0019641B /* EFCircularSlider.m */,
+			);
+			name = EFCircularSlider;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		73AA2225184F85BF0019641B /* EFCircularSlider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73AA2258184F85BF0019641B /* Build configuration list for PBXNativeTarget "EFCircularSlider" */;
+			buildPhases = (
+				73AA2222184F85BF0019641B /* Sources */,
+				73AA2223184F85BF0019641B /* Frameworks */,
+				73AA2224184F85BF0019641B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EFCircularSlider;
+			productName = EFCircularSlider;
+			productReference = 73AA2226184F85BF0019641B /* EFCircularSlider.app */;
+			productType = "com.apple.product-type.application";
+		};
+		73AA2246184F85BF0019641B /* EFCircularSliderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73AA225B184F85BF0019641B /* Build configuration list for PBXNativeTarget "EFCircularSliderTests" */;
+			buildPhases = (
+				73AA2243184F85BF0019641B /* Sources */,
+				73AA2244184F85BF0019641B /* Frameworks */,
+				73AA2245184F85BF0019641B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				73AA224D184F85BF0019641B /* PBXTargetDependency */,
+			);
+			name = EFCircularSliderTests;
+			productName = EFCircularSliderTests;
+			productReference = 73AA2247184F85BF0019641B /* EFCircularSliderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		73AA221E184F85BF0019641B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EF;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Eliot Fowler";
+				TargetAttributes = {
+					73AA2246184F85BF0019641B = {
+						TestTargetID = 73AA2225184F85BF0019641B;
+					};
+				};
+			};
+			buildConfigurationList = 73AA2221184F85BF0019641B /* Build configuration list for PBXProject "EFCircularSlider" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 73AA221D184F85BF0019641B;
+			productRefGroup = 73AA2227184F85BF0019641B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				73AA2225184F85BF0019641B /* EFCircularSlider */,
+				73AA2246184F85BF0019641B /* EFCircularSliderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		73AA2224184F85BF0019641B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73AA2242184F85BF0019641B /* Images.xcassets in Resources */,
+				73AA2234184F85BF0019641B /* InfoPlist.strings in Resources */,
+				73AA223D184F85BF0019641B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73AA2245184F85BF0019641B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73AA2253184F85BF0019641B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		73AA2222184F85BF0019641B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73AA2261184F861C0019641B /* EFCircularSlider.m in Sources */,
+				73AA2240184F85BF0019641B /* EFViewController.m in Sources */,
+				73AA2236184F85BF0019641B /* main.m in Sources */,
+				73AA223A184F85BF0019641B /* EFAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73AA2243184F85BF0019641B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73AA2255184F85BF0019641B /* EFCircularSliderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		73AA224D184F85BF0019641B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 73AA2225184F85BF0019641B /* EFCircularSlider */;
+			targetProxy = 73AA224C184F85BF0019641B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		73AA2232184F85BF0019641B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				73AA2233184F85BF0019641B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		73AA223B184F85BF0019641B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				73AA223C184F85BF0019641B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		73AA2251184F85BF0019641B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				73AA2252184F85BF0019641B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		73AA2256184F85BF0019641B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		73AA2257184F85BF0019641B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		73AA2259184F85BF0019641B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EFCircularSlider/EFCircularSlider-Prefix.pch";
+				INFOPLIST_FILE = "EFCircularSlider/EFCircularSlider-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		73AA225A184F85BF0019641B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EFCircularSlider/EFCircularSlider-Prefix.pch";
+				INFOPLIST_FILE = "EFCircularSlider/EFCircularSlider-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		73AA225C184F85BF0019641B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EFCircularSlider.app/EFCircularSlider";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EFCircularSlider/EFCircularSlider-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "EFCircularSliderTests/EFCircularSliderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		73AA225D184F85BF0019641B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EFCircularSlider.app/EFCircularSlider";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EFCircularSlider/EFCircularSlider-Prefix.pch";
+				INFOPLIST_FILE = "EFCircularSliderTests/EFCircularSliderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		73AA2221184F85BF0019641B /* Build configuration list for PBXProject "EFCircularSlider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73AA2256184F85BF0019641B /* Debug */,
+				73AA2257184F85BF0019641B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		73AA2258184F85BF0019641B /* Build configuration list for PBXNativeTarget "EFCircularSlider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73AA2259184F85BF0019641B /* Debug */,
+				73AA225A184F85BF0019641B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		73AA225B184F85BF0019641B /* Build configuration list for PBXNativeTarget "EFCircularSliderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73AA225C184F85BF0019641B /* Debug */,
+				73AA225D184F85BF0019641B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 73AA221E184F85BF0019641B /* Project object */;
+}
