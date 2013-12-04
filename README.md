@@ -11,12 +11,18 @@ Adding EFCircularSlider to your project is as simple as getting the source files
 
 ``` objc
 - (void)viewDidLoad {
-...
-CGRect sliderFrame = CGRectMake(110, 150, 100, 100);
+	...
+	CGRect sliderFrame = CGRectMake(110, 150, 100, 100);
     EFCircularSlider* circularSlider = [[EFCircularSlider alloc] initWithFrame:sliderFrame];
     [self.view addSubview:circularSlider];
     ...
 }
+```
+
+And then, just like you would for any other control, you need to subscribe to the event chagning using target-action behavior:
+
+```objc
+[slider addTarget:self action:@selector(newValue:) forControlEvents:UIControlEventValueChanged];
 ```
 
 Customizing

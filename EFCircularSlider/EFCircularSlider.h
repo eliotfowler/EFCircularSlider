@@ -13,7 +13,15 @@
 @property (nonatomic) float minimumValue;
 @property (nonatomic) float maximumValue;
 @property (nonatomic) float currentValue;
-@property (nonatomic, strong) UIColor* unfilledColor;
-@property (nonatomic, strong) UIColor* filledColor;
+
+typedef enum : NSUInteger {
+    semiTransparentWhiteCircle,
+    semiTransparentBlackCircle,
+    doubleCircleWithOpenCenter,
+    doubleCircleWithClosedCenter
+} HandleType;
+
+-(void)setHandleColor:(UIColor*)color;
+-(void)setInnerMarkingLabels:(NSArray*)labels;
 
 @end
