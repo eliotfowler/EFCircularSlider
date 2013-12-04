@@ -17,6 +17,7 @@
     CGFloat radius;
     CGFloat lineWidth;
     int angle;
+    int fixedAngle;
     UIColor* handleColor;
     NSMutableDictionary* labelsWithPercents;
     NSArray* labelsEvenSpacing;
@@ -44,9 +45,9 @@
         handleColor = [UIColor redColor];
         labelFont = [UIFont systemFontOfSize:10.0f];
         labelsEvenSpacing = @[@"12", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11"];
-        //labelsEvenSpacing = @[@"12", @"6"];
-        snapToLabels = NO;
-        handleType = doubleCircleWithClosedCenter;
+//        labelsEvenSpacing = @[@"12", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11"];
+        snapToLabels = YES;
+        handleType = doubleCircleWithOpenCenter;
         
         self.backgroundColor = [UIColor clearColor];
     }
@@ -112,7 +113,7 @@
         CGContextSetLineCap(ctx, kCGLineCapButt);
         CGContextDrawPath(ctx, kCGPathStroke);
         
-        CGContextAddArc(ctx, handleCenter.x + lineWidth/4, handleCenter.y + lineWidth/4, lineWidth/2, 0, M_PI *2, 0);
+        CGContextAddArc(ctx, handleCenter.x + lineWidth/2, handleCenter.y + lineWidth/2, lineWidth/2, 0, M_PI *2, 0);
         CGContextSetLineWidth(ctx, 1);
         CGContextSetLineCap(ctx, kCGLineCapButt);
         CGContextDrawPath(ctx, kCGPathStroke);
@@ -168,6 +169,22 @@
 
 -(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
     [super endTrackingWithTouch:touch withEvent:event];
+    if(snapToLabels) {
+        CGPoint bestGuessPoint;
+        float minDist = 360;
+        for (int i=0; i<[labelsEvenSpacing count]; i++) {
+            CGFloat percentageAlongCircle = i/(float)[labelsEvenSpacing count];
+            CGFloat degreesForLabel = percentageAlongCircle * 360;
+            if(abs(fixedAngle - degreesForLabel) < minDist) {
+                minDist = abs(fixedAngle - degreesForLabel);
+                bestGuessPoint = [self pointFromAngle:degreesForLabel + 90 + 180];
+            }
+        }
+        CGPoint centerPoint = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+        angle = floor(AngleFromNorth(centerPoint, bestGuessPoint, NO));
+        _currentValue = [self valueFromAngle];
+        [self setNeedsDisplay];
+    }
 }
 
 -(void)moveHandle:(CGPoint)point {
@@ -223,6 +240,7 @@ static inline float AngleFromNorth(CGPoint p1, CGPoint p2, BOOL flipped) {
     } else {
         _currentValue = 270 - angle + 90;
     }
+    fixedAngle = _currentValue;
     return (_currentValue*(_maximumValue - _minimumValue))/360.0f;
 }
 
