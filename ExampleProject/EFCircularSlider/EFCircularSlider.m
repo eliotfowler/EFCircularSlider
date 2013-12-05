@@ -204,19 +204,6 @@
     return result;
 }
 
--(CGPoint)pointFromAngle:(int)angleInt withObjectSize:(CGSize)size{
-    
-    //Define the Circle center
-    CGPoint centerPoint = CGPointMake(self.frame.size.width/2 - _lineWidth/2, self.frame.size.height/2 - _lineWidth/2);
-    
-    //Define The point position on the circumference
-    CGPoint result;
-    result.y = round(centerPoint.y + radius * sin(ToRad(-angleInt-90))) ;
-    result.x = round(centerPoint.x + radius * cos(ToRad(-angleInt-90)));
-    
-    return result;
-}
-
 static inline float AngleFromNorth(CGPoint p1, CGPoint p2, BOOL flipped) {
     CGPoint v = CGPointMake(p2.x-p1.x,p2.y-p1.y);
     float vmag = sqrt(SQR(v.x) + SQR(v.y)), result = 0;
