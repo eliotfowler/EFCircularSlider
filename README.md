@@ -9,7 +9,7 @@ Demo
 The code to make this GIF is in the `ExampleProject/` directory:
 
 
-![EFCircularSliderDemo](http://i.imgur.com/fSqopqv.gif)
+![EFCircularSliderDemo](http://i.imgur.com/cnWYkVz.gif)
 
 
 Initialization
@@ -103,6 +103,7 @@ EFCircularSlider comes with 4 types of handles:
 - semiTransparentBlackCircle
 - doubleCircleWithOpenCenter
 - doubleCircleWithClosedCenter
+- bigCircle
 
 You can change the handleType with:
 
