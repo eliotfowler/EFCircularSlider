@@ -152,12 +152,12 @@ circularSlider.snapToLabels = YES;
 
 You can send this method an array of labels and they will show up on the inside of the slider. There is currently no way to specify the spacing between the labels and therefore they will be evenly spaced out. If you choose to include labels on your slider, you will then have the option to set the font of the label as well as if the slider should snap to the closest label position after the value changes.
 
-The first label will appear at the 12 o'clock position (if it were a clock).
+The first label will appear at the 1 o'clock position (if it were a clock).
 
 If you wanted to make your slider look like a clock, you would do the following:
 
 ```objc
-NSArray* hoursArray = @[@"12", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11"];
+NSArray* hoursArray = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12"];
 [circularSlider setInnerMarkingLabels:hoursArray];
 ``` 
 
