@@ -3,6 +3,14 @@ EFCircularSlider
 
 An extensible circular slider for iOS applications.
 
+Demo
+----
+
+The code to make this GIF is in the `ExampleProject/` directory:
+
+
+![EFCircularSliderDemo](http://i.imgur.com/fSqopqv.gif)
+
 
 Initialization
 --------------
