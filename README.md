@@ -8,8 +8,9 @@ Demo
 
 The code to make this GIF is in the `ExampleProject/` directory:
 
-
-![EFCircularSliderDemo](http://i.imgur.com/cnWYkVz.gif)
+<p align="center">
+  <img src="http://i.imgur.com/cnWYkVz.gif">
+</p>
 
 
 Initialization
