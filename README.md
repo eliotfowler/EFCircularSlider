@@ -122,7 +122,7 @@ You can modify the filledColor with:
 circularSlider.unfilledColor = [UIColor purpleColor];
 ```
 
-####labelFont:(UIFont*) - Default [UIFont systemFontOfSize:12.0f]
+####labelFont:(UIFont*) - Default [UIFont systemFontOfSize:10.0f]
 
 This is the font that the labels will have if you decide to set inner marking labels (more on this down the page). 
 

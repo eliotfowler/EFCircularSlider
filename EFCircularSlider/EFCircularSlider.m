@@ -30,12 +30,12 @@
         _minimumValue = 0.0f;
         _currentValue = 0.0f;
         _lineWidth = 5;
-        _unfilledColor = [UIColor blueColor];
+        _unfilledColor = [UIColor blackColor];
         _filledColor = [UIColor redColor];
         _handleColor = _filledColor;
         _labelFont = [UIFont systemFontOfSize:10.0f];
         _snapToLabels = NO;
-        _handleType = doubleCircleWithOpenCenter;
+        _handleType = semiTransparentWhiteCircle;
         
         angle = 0;
         radius = self.frame.size.height/2 - _lineWidth/2 - 10;
@@ -63,7 +63,7 @@
     
     //Draw the filled circle
     if(_handleType == doubleCircleWithClosedCenter || _handleType == doubleCircleWithOpenCenter) {
-        CGContextAddArc(ctx, self.frame.size.width/2  , self.frame.size.height/2, radius, 3*M_PI/2, 3*M_PI/2-ToRad(angle+5), 0);
+        CGContextAddArc(ctx, self.frame.size.width/2  , self.frame.size.height/2, radius, 3*M_PI/2, 3*M_PI/2-ToRad(angle+(_lineWidth/2) + 2), 0);
     } else {
         CGContextAddArc(ctx, self.frame.size.width/2  , self.frame.size.height/2, radius, 3*M_PI/2, 3*M_PI/2-ToRad(angle), 0);
     }
@@ -92,15 +92,15 @@
         CGContextFillEllipseInRect(ctx, CGRectMake(handleCenter.x, handleCenter.y, _lineWidth, _lineWidth));
     } else if(_handleType == doubleCircleWithClosedCenter) {
         [_handleColor set];
-        CGContextAddArc(ctx, handleCenter.x - (_lineWidth-10)/2, handleCenter.y + (_lineWidth)/2, 8, 0, M_PI *2, 0);
-        CGContextSetLineWidth(ctx, _lineWidth-2);
+        CGContextAddArc(ctx, handleCenter.x + (_lineWidth)/2, handleCenter.y + (_lineWidth)/2, _lineWidth + 2, 0, M_PI *2, 0);
+        CGContextSetLineWidth(ctx, 5);
         CGContextSetLineCap(ctx, kCGLineCapButt);
         CGContextDrawPath(ctx, kCGPathStroke);
-        CGContextFillEllipseInRect(ctx, CGRectMake(handleCenter.x, handleCenter.y, _lineWidth, _lineWidth));
+        CGContextFillEllipseInRect(ctx, CGRectMake(handleCenter.x-1, handleCenter.y-1, _lineWidth+1, _lineWidth+1));
     } else if(_handleType == doubleCircleWithOpenCenter) {
         [_handleColor set];
-        CGContextAddArc(ctx, handleCenter.x - (_lineWidth-10)/2, handleCenter.y + (_lineWidth)/2, 8, 0, M_PI *2, 0);
-        CGContextSetLineWidth(ctx, _lineWidth-2);
+        CGContextAddArc(ctx, handleCenter.x + (_lineWidth)/2, handleCenter.y + (_lineWidth)/2, 8, 0, M_PI *2, 0);
+        CGContextSetLineWidth(ctx, 4);
         CGContextSetLineCap(ctx, kCGLineCapButt);
         CGContextDrawPath(ctx, kCGPathStroke);
         
@@ -117,20 +117,18 @@
     if(labelsEvenSpacing == nil || [labelsEvenSpacing count] == 0) {
         return;
     } else {
-        NSString* firstLabel = [labelsEvenSpacing objectAtIndex:0];
-        CGFloat firstLabelXPos = self.frame.size.width/2 - [self widthOfString:firstLabel withFont:_labelFont]/2;
-        CGRect firstLabelLocation = CGRectMake(firstLabelXPos, _lineWidth + 15, [self widthOfString:firstLabel withFont:_labelFont], [self heightOfString:firstLabel withFont:_labelFont]);
         NSDictionary *attributes = @{ NSFontAttributeName: _labelFont,
                                       NSForegroundColorAttributeName: [UIColor redColor]};
-        [firstLabel drawInRect:firstLabelLocation withAttributes:attributes];
+        int distanceToMove = -15;
         
-        for (int i=1; i<[labelsEvenSpacing count]; i++) {
-            NSString* label = [labelsEvenSpacing objectAtIndex:[labelsEvenSpacing count] - i];
+        for (int i=0; i<[labelsEvenSpacing count]; i++) {
+            NSString* label = [labelsEvenSpacing objectAtIndex:[labelsEvenSpacing count] - i - 1];
             CGFloat percentageAlongCircle = i/(float)[labelsEvenSpacing count];
             CGFloat degreesForLabel = percentageAlongCircle * 360;
             CGPoint closestPointOnCircleToLabel = [self pointFromAngle:degreesForLabel];
-            CGRect labelLocation = CGRectMake(closestPointOnCircleToLabel.x, closestPointOnCircleToLabel.y, [self widthOfString:label withFont:_labelFont], [self heightOfString:firstLabel withFont:_labelFont]);
-            int distanceToMove = -15;
+            
+            CGRect labelLocation = CGRectMake(closestPointOnCircleToLabel.x, closestPointOnCircleToLabel.y, [self widthOfString:label withFont:_labelFont], [self heightOfString:label withFont:_labelFont]);
+            
             CGPoint centerPoint = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
             float radiansTowardsCenter = ToRad(AngleFromNorth(centerPoint, closestPointOnCircleToLabel, NO));
             labelLocation.origin.x =  (labelLocation.origin.x + distanceToMove * cos(radiansTowardsCenter)) - labelLocation.size.width/4;

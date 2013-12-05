@@ -22,8 +22,8 @@
     CGRect sliderFrame = CGRectMake(60, 150, 200, 200);
     
     EFCircularSlider* circularSlider = [[EFCircularSlider alloc] initWithFrame:sliderFrame];
-    [circularSlider setInnerMarkingLabels:@[@"12", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11"]];
-    circularSlider.handleType = doubleCircleWithClosedCenter;
+    [circularSlider setInnerMarkingLabels:@[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12"]];
+    circularSlider.snapToLabels = YES;
     
     [self.view addSubview:circularSlider];
 }
