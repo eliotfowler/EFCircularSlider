@@ -14,7 +14,8 @@ typedef enum : NSUInteger {
     semiTransparentWhiteCircle,
     semiTransparentBlackCircle,
     doubleCircleWithOpenCenter,
-    doubleCircleWithClosedCenter
+    doubleCircleWithClosedCenter,
+    bigCircle
 } HandleType;
 
 @property (nonatomic) float minimumValue;
@@ -29,6 +30,7 @@ typedef enum : NSUInteger {
 @property (nonatomic) HandleType handleType;
 
 @property (nonatomic, strong) UIFont* labelFont;
+@property (nonatomic, strong) UIColor* labelColor;
 @property (nonatomic) BOOL snapToLabels;
 
 

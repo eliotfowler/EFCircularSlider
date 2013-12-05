@@ -8,6 +8,7 @@
 
 #import "EFCircularSlider.h"
 #import <QuartzCore/QuartzCore.h>
+#import <CoreImage/CoreImage.h>
 
 #define ToRad(deg) 		( (M_PI * (deg)) / 180.0 )
 #define ToDeg(rad)		( (180.0 * (rad)) / M_PI )
@@ -36,6 +37,7 @@
         _labelFont = [UIFont systemFontOfSize:10.0f];
         _snapToLabels = NO;
         _handleType = semiTransparentWhiteCircle;
+        _labelColor = [UIColor redColor];
         
         angle = 0;
         radius = self.frame.size.height/2 - _lineWidth/2 - 10;
@@ -62,8 +64,8 @@
     
     
     //Draw the filled circle
-    if(_handleType == doubleCircleWithClosedCenter || _handleType == doubleCircleWithOpenCenter) {
-        CGContextAddArc(ctx, self.frame.size.width/2  , self.frame.size.height/2, radius, 3*M_PI/2, 3*M_PI/2-ToRad(angle+(_lineWidth/2) + 2), 0);
+    if((_handleType == doubleCircleWithClosedCenter || _handleType == doubleCircleWithOpenCenter) && fixedAngle > 5) {
+        CGContextAddArc(ctx, self.frame.size.width/2  , self.frame.size.height/2, radius, 3*M_PI/2, 3*M_PI/2-ToRad(angle+3), 0);
     } else {
         CGContextAddArc(ctx, self.frame.size.width/2  , self.frame.size.height/2, radius, 3*M_PI/2, 3*M_PI/2-ToRad(angle), 0);
     }
@@ -92,11 +94,11 @@
         CGContextFillEllipseInRect(ctx, CGRectMake(handleCenter.x, handleCenter.y, _lineWidth, _lineWidth));
     } else if(_handleType == doubleCircleWithClosedCenter) {
         [_handleColor set];
-        CGContextAddArc(ctx, handleCenter.x + (_lineWidth)/2, handleCenter.y + (_lineWidth)/2, _lineWidth + 2, 0, M_PI *2, 0);
-        CGContextSetLineWidth(ctx, 5);
+        CGContextAddArc(ctx, handleCenter.x + (_lineWidth)/2, handleCenter.y + (_lineWidth)/2, _lineWidth, 0, M_PI *2, 0);
+        CGContextSetLineWidth(ctx, 7);
         CGContextSetLineCap(ctx, kCGLineCapButt);
         CGContextDrawPath(ctx, kCGPathStroke);
-        CGContextFillEllipseInRect(ctx, CGRectMake(handleCenter.x-1, handleCenter.y-1, _lineWidth+1, _lineWidth+1));
+        CGContextFillEllipseInRect(ctx, CGRectMake(handleCenter.x, handleCenter.y, _lineWidth-1, _lineWidth-1));
     } else if(_handleType == doubleCircleWithOpenCenter) {
         [_handleColor set];
         CGContextAddArc(ctx, handleCenter.x + (_lineWidth)/2, handleCenter.y + (_lineWidth)/2, 8, 0, M_PI *2, 0);
@@ -105,9 +107,12 @@
         CGContextDrawPath(ctx, kCGPathStroke);
         
         CGContextAddArc(ctx, handleCenter.x + _lineWidth/2, handleCenter.y + _lineWidth/2, _lineWidth/2, 0, M_PI *2, 0);
-        CGContextSetLineWidth(ctx, 1);
+        CGContextSetLineWidth(ctx, 2);
         CGContextSetLineCap(ctx, kCGLineCapButt);
         CGContextDrawPath(ctx, kCGPathStroke);
+    } else if(_handleType == bigCircle) {
+        [_handleColor set];
+        CGContextFillEllipseInRect(ctx, CGRectMake(handleCenter.x-2.5, handleCenter.y-2.5, _lineWidth+5, _lineWidth+5));
     }
     
     CGContextRestoreGState(ctx);
@@ -118,7 +123,7 @@
         return;
     } else {
         NSDictionary *attributes = @{ NSFontAttributeName: _labelFont,
-                                      NSForegroundColorAttributeName: [UIColor redColor]};
+                                      NSForegroundColorAttributeName: _labelColor};
         int distanceToMove = -15;
         
         for (int i=0; i<[labelsEvenSpacing count]; i++) {

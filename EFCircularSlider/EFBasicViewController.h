@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EFViewController : UIViewController
+@interface EFBasicViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 
 @end
