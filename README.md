@@ -171,6 +171,14 @@ NSArray* hoursArray = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"
 [circularSlider setInnerMarkingLabels:hoursArray];
 ``` 
 
+About the developer
+-------------------
+
+If you like this app, [follow me](http://www.twitter.com/eliotfowler) on Twitter and let me know!
+
+<a href="https://twitter.com/eliotfowler" class="twitter-follow-button" data-dnt="true">Follow @EliotFowler</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
 License (MIT)
 -------------
 
