@@ -12,6 +12,20 @@ The code to make this GIF is in the `ExampleProject/` directory:
   <img src="http://i.imgur.com/cnWYkVz.gif">
 </p>
 
+Installation
+------------
+
+The simplest way to use EFCircularSlider in your application is with [CocoaPods](http://cocoapods.org). See the ["Getting Started" guide for more information](http://guides.cocoapods.org/using/using-cocoapods.html).
+
+#### Podfile
+
+```ruby
+platform :ios, '7.0'
+pod "EFCircularSlider", "~> 0.1.0"
+```
+
+You could instead clone the project and copy the EFCircularSlider/EFCircularSlider.{h,m} files into your project.
+
 
 Initialization
 --------------
