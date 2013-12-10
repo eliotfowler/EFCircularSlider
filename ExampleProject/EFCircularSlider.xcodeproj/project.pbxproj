@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2638776D1857686D00069D17 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2638776C1857686D00069D17 /* EFCircularSlider.m */; };
 		73AA222A184F85BF0019641B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA2229184F85BF0019641B /* Foundation.framework */; };
 		73AA222C184F85BF0019641B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA222B184F85BF0019641B /* CoreGraphics.framework */; };
 		73AA222E184F85BF0019641B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA222D184F85BF0019641B /* UIKit.framework */; };
@@ -21,7 +22,6 @@
 		73AA224B184F85BF0019641B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA222D184F85BF0019641B /* UIKit.framework */; };
 		73AA2253184F85BF0019641B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73AA2251184F85BF0019641B /* InfoPlist.strings */; };
 		73AA2255184F85BF0019641B /* EFCircularSliderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AA2254184F85BF0019641B /* EFCircularSliderTests.m */; };
-		73AA2261184F861C0019641B /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AA2260184F861C0019641B /* EFCircularSlider.m */; };
 		73AA22731850F3720019641B /* EFDemoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AA22721850F3720019641B /* EFDemoListViewController.m */; };
 		73AA2276185100B70019641B /* EFBigCircleHandleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AA2275185100B70019641B /* EFBigCircleHandleViewController.m */; };
 		73AA2279185101F60019641B /* EFDoubleCircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AA2278185101F60019641B /* EFDoubleCircleViewController.m */; };
@@ -41,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2638776B1857686D00069D17 /* EFCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFCircularSlider.h; sourceTree = "<group>"; };
+		2638776C1857686D00069D17 /* EFCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFCircularSlider.m; sourceTree = "<group>"; };
 		73AA2226184F85BF0019641B /* EFCircularSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EFCircularSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73AA2229184F85BF0019641B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		73AA222B184F85BF0019641B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,8 +62,6 @@
 		73AA2250184F85BF0019641B /* EFCircularSliderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EFCircularSliderTests-Info.plist"; sourceTree = "<group>"; };
 		73AA2252184F85BF0019641B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		73AA2254184F85BF0019641B /* EFCircularSliderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EFCircularSliderTests.m; sourceTree = "<group>"; };
-		73AA225F184F861C0019641B /* EFCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFCircularSlider.h; sourceTree = "<group>"; };
-		73AA2260184F861C0019641B /* EFCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFCircularSlider.m; sourceTree = "<group>"; };
 		73AA22711850F3720019641B /* EFDemoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFDemoListViewController.h; sourceTree = "<group>"; };
 		73AA22721850F3720019641B /* EFDemoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFDemoListViewController.m; sourceTree = "<group>"; };
 		73AA2274185100B70019641B /* EFBigCircleHandleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBigCircleHandleViewController.h; sourceTree = "<group>"; };
@@ -100,6 +100,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2638776A1857686D00069D17 /* EFCircularSlider */ = {
+			isa = PBXGroup;
+			children = (
+				2638776B1857686D00069D17 /* EFCircularSlider.h */,
+				2638776C1857686D00069D17 /* EFCircularSlider.m */,
+			);
+			name = EFCircularSlider;
+			path = ../../EFCircularSlider;
+			sourceTree = "<group>";
+		};
 		73AA221D184F85BF0019641B = {
 			isa = PBXGroup;
 			children = (
@@ -133,7 +143,7 @@
 		73AA222F184F85BF0019641B /* EFCircularSlider */ = {
 			isa = PBXGroup;
 			children = (
-				73AA225E184F85D30019641B /* EFCircularSlider */,
+				2638776A1857686D00069D17 /* EFCircularSlider */,
 				73AA223B184F85BF0019641B /* Main.storyboard */,
 				73AA2241184F85BF0019641B /* Images.xcassets */,
 				73AA22701850F3340019641B /* ViewControllers */,
@@ -171,15 +181,6 @@
 				73AA2251184F85BF0019641B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		73AA225E184F85D30019641B /* EFCircularSlider */ = {
-			isa = PBXGroup;
-			children = (
-				73AA225F184F861C0019641B /* EFCircularSlider.h */,
-				73AA2260184F861C0019641B /* EFCircularSlider.m */,
-			);
-			name = EFCircularSlider;
 			sourceTree = "<group>";
 		};
 		73AA22701850F3340019641B /* ViewControllers */ = {
@@ -309,10 +310,10 @@
 				73AA2282185103BC0019641B /* EFTimePickerViewController.m in Sources */,
 				73AA227F1851030B0019641B /* EFSnapToLabelsViewController.m in Sources */,
 				73AA2279185101F60019641B /* EFDoubleCircleViewController.m in Sources */,
-				73AA2261184F861C0019641B /* EFCircularSlider.m in Sources */,
 				73AA2240184F85BF0019641B /* EFBasicViewController.m in Sources */,
 				73AA2236184F85BF0019641B /* main.m in Sources */,
 				73AA22731850F3720019641B /* EFDemoListViewController.m in Sources */,
+				2638776D1857686D00069D17 /* EFCircularSlider.m in Sources */,
 				73AA223A184F85BF0019641B /* EFAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
