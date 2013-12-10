@@ -110,7 +110,7 @@ CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;
 circularSlider.handleColor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
 ```
 
-####handleType:(HandleType) - Default EFSemiTransparentWhiteCircle
+####handleType:(EFHandleType) - Default EFSemiTransparentWhiteCircle
 
 EFCircularSlider comes with 4 types of handles:
 
