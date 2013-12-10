@@ -10,13 +10,13 @@
 
 @interface EFCircularSlider : UIControl
 
-typedef enum : NSUInteger {
-    semiTransparentWhiteCircle,
-    semiTransparentBlackCircle,
-    doubleCircleWithOpenCenter,
-    doubleCircleWithClosedCenter,
-    bigCircle
-} HandleType;
+typedef NS_ENUM(NSInteger, EFHandleType) {
+    EFSemiTransparentWhiteCircle,
+    EFSemiTransparentBlackCircle,
+    EFDoubleCircleWithOpenCenter,
+    EFDoubleCircleWithClosedCenter,
+    EFBigCircle
+};
 
 @property (nonatomic) float minimumValue;
 @property (nonatomic) float maximumValue;
@@ -27,7 +27,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) UIColor* unfilledColor;
 
 @property (nonatomic, strong) UIColor* handleColor;
-@property (nonatomic) HandleType handleType;
+@property (nonatomic) EFHandleType handleType;
 
 @property (nonatomic, strong) UIFont* labelFont;
 @property (nonatomic, strong) UIColor* labelColor;

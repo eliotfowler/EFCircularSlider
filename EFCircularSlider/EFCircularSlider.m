@@ -36,7 +36,7 @@
         _handleColor = _filledColor;
         _labelFont = [UIFont systemFontOfSize:10.0f];
         _snapToLabels = NO;
-        _handleType = semiTransparentWhiteCircle;
+        _handleType = EFSemiTransparentWhiteCircle;
         _labelColor = [UIColor redColor];
         
         angle = 0;
@@ -64,7 +64,7 @@
     
     
     //Draw the filled circle
-    if((_handleType == doubleCircleWithClosedCenter || _handleType == doubleCircleWithOpenCenter) && fixedAngle > 5) {
+    if((_handleType == EFDoubleCircleWithClosedCenter || _handleType == EFDoubleCircleWithOpenCenter) && fixedAngle > 5) {
         CGContextAddArc(ctx, self.frame.size.width/2  , self.frame.size.height/2, radius, 3*M_PI/2, 3*M_PI/2-ToRad(angle+3), 0);
     } else {
         CGContextAddArc(ctx, self.frame.size.width/2  , self.frame.size.height/2, radius, 3*M_PI/2, 3*M_PI/2-ToRad(angle), 0);
@@ -86,20 +86,20 @@
 -(void) drawHandle:(CGContextRef)ctx{
     CGContextSaveGState(ctx);
     CGPoint handleCenter =  [self pointFromAngle: angle];
-    if(_handleType == semiTransparentWhiteCircle) {
+    if(_handleType == EFSemiTransparentWhiteCircle) {
         [[UIColor colorWithWhite:1.0 alpha:0.7] set];
         CGContextFillEllipseInRect(ctx, CGRectMake(handleCenter.x, handleCenter.y, _lineWidth, _lineWidth));
-    } else if(_handleType == semiTransparentBlackCircle) {
+    } else if(_handleType == EFSemiTransparentBlackCircle) {
         [[UIColor colorWithWhite:0.0 alpha:0.7] set];
         CGContextFillEllipseInRect(ctx, CGRectMake(handleCenter.x, handleCenter.y, _lineWidth, _lineWidth));
-    } else if(_handleType == doubleCircleWithClosedCenter) {
+    } else if(_handleType == EFDoubleCircleWithClosedCenter) {
         [_handleColor set];
         CGContextAddArc(ctx, handleCenter.x + (_lineWidth)/2, handleCenter.y + (_lineWidth)/2, _lineWidth, 0, M_PI *2, 0);
         CGContextSetLineWidth(ctx, 7);
         CGContextSetLineCap(ctx, kCGLineCapButt);
         CGContextDrawPath(ctx, kCGPathStroke);
         CGContextFillEllipseInRect(ctx, CGRectMake(handleCenter.x, handleCenter.y, _lineWidth-1, _lineWidth-1));
-    } else if(_handleType == doubleCircleWithOpenCenter) {
+    } else if(_handleType == EFDoubleCircleWithOpenCenter) {
         [_handleColor set];
         CGContextAddArc(ctx, handleCenter.x + (_lineWidth)/2, handleCenter.y + (_lineWidth)/2, 8, 0, M_PI *2, 0);
         CGContextSetLineWidth(ctx, 4);
@@ -110,7 +110,7 @@
         CGContextSetLineWidth(ctx, 2);
         CGContextSetLineCap(ctx, kCGLineCapButt);
         CGContextDrawPath(ctx, kCGPathStroke);
-    } else if(_handleType == bigCircle) {
+    } else if(_handleType == EFBigCircle) {
         [_handleColor set];
         CGContextFillEllipseInRect(ctx, CGRectMake(handleCenter.x-2.5, handleCenter.y-2.5, _lineWidth+5, _lineWidth+5));
     }

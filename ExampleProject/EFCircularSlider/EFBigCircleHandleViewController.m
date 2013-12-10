@@ -30,7 +30,7 @@
 	
     CGRect sliderFrame = CGRectMake(60, 150, 200, 200);
     EFCircularSlider* circularSlider = [[EFCircularSlider alloc] initWithFrame:sliderFrame];
-    circularSlider.handleType = bigCircle;
+    circularSlider.handleType = EFBigCircle;
     circularSlider.handleColor = [UIColor blueColor];
     [self.view addSubview:circularSlider];
 }

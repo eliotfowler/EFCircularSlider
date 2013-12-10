@@ -30,7 +30,7 @@
     
     CGRect sliderFrame = CGRectMake(60, 150, 200, 200);
     EFCircularSlider* circularSlider = [[EFCircularSlider alloc] initWithFrame:sliderFrame];
-    circularSlider.handleType = doubleCircleWithOpenCenter;
+    circularSlider.handleType = EFDoubleCircleWithOpenCenter;
     [self.view addSubview:circularSlider];
 }
 
