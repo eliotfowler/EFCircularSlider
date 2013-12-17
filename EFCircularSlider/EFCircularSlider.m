@@ -119,10 +119,11 @@
         CGContextSetLineWidth(ctx, 7);
         CGContextSetLineCap(ctx, kCGLineCapButt);
         CGContextDrawPath(ctx, kCGPathStroke);
+        
         CGContextFillEllipseInRect(ctx, CGRectMake(handleCenter.x, handleCenter.y, _lineWidth-1, _lineWidth-1));
     } else if(_handleType == EFDoubleCircleWithOpenCenter) {
         [_handleColor set];
-        CGContextAddArc(ctx, handleCenter.x + (_lineWidth)/2, handleCenter.y + (_lineWidth)/2, 8, 0, M_PI *2, 0);
+        CGContextAddArc(ctx, handleCenter.x + (_lineWidth)/2, handleCenter.y + (_lineWidth)/2, _lineWidth/2 + 5, 0, M_PI *2, 0);
         CGContextSetLineWidth(ctx, 4);
         CGContextSetLineCap(ctx, kCGLineCapButt);
         CGContextDrawPath(ctx, kCGPathStroke);
@@ -145,20 +146,21 @@
     } else {
         NSDictionary *attributes = @{ NSFontAttributeName: _labelFont,
                                       NSForegroundColorAttributeName: _labelColor};
-        int distanceToMove = -15;
+        int distanceToMove = -[self circleDiameter]/2 - _labelFont.pointSize;
         
         for (int i=0; i<[labelsEvenSpacing count]; i++) {
             NSString* label = [labelsEvenSpacing objectAtIndex:[labelsEvenSpacing count] - i - 1];
             CGFloat percentageAlongCircle = i/(float)[labelsEvenSpacing count];
             CGFloat degreesForLabel = percentageAlongCircle * 360;
-            CGPoint closestPointOnCircleToLabel = [self pointFromAngle:degreesForLabel];
+            CGSize labelSize=CGSizeMake([self widthOfString:label withFont:_labelFont], [self heightOfString:label withFont:_labelFont]);
+            CGPoint closestPointOnCircleToLabel = [self pointFromAngle:degreesForLabel withObjectSize:labelSize];
             
-            CGRect labelLocation = CGRectMake(closestPointOnCircleToLabel.x, closestPointOnCircleToLabel.y, [self widthOfString:label withFont:_labelFont], [self heightOfString:label withFont:_labelFont]);
+            CGRect labelLocation = CGRectMake(closestPointOnCircleToLabel.x, closestPointOnCircleToLabel.y, labelSize.width, labelSize.height);
             
             CGPoint centerPoint = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
             float radiansTowardsCenter = ToRad(AngleFromNorth(centerPoint, closestPointOnCircleToLabel, NO));
-            labelLocation.origin.x =  (labelLocation.origin.x + distanceToMove * cos(radiansTowardsCenter)) - labelLocation.size.width/4;
-            labelLocation.origin.y = (labelLocation.origin.y + distanceToMove * sin(radiansTowardsCenter))- labelLocation.size.height/4;
+            labelLocation.origin.x = (labelLocation.origin.x + distanceToMove * cos(radiansTowardsCenter));
+            labelLocation.origin.y = (labelLocation.origin.y + distanceToMove * sin(radiansTowardsCenter));
             [label drawInRect:labelLocation withAttributes:attributes];
         }
     }
@@ -228,7 +230,7 @@
 -(CGPoint)pointFromAngle:(int)angleInt withObjectSize:(CGSize)size{
     
     //Define the Circle center
-    CGPoint centerPoint = CGPointMake(self.frame.size.width/2 - _lineWidth/2, self.frame.size.height/2 - _lineWidth/2);
+    CGPoint centerPoint = CGPointMake(self.frame.size.width/2 - size.width/2, self.frame.size.height/2 - size.height/2);
     
     //Define The point position on the circumference
     CGPoint result;
@@ -236,6 +238,21 @@
     result.x = round(centerPoint.x + radius * cos(ToRad(-angleInt-90)));
     
     return result;
+}
+
+- (CGFloat)circleDiameter {
+    if(_handleType == EFSemiTransparentWhiteCircle) {
+        return _lineWidth;
+    } else if(_handleType == EFSemiTransparentBlackCircle) {
+        return _lineWidth;
+    } else if(_handleType == EFDoubleCircleWithClosedCenter) {
+        return _lineWidth * 2 + 3.5;
+    } else if(_handleType == EFDoubleCircleWithOpenCenter) {
+        return _lineWidth + 2.5 + 2;
+    } else if(_handleType == EFBigCircle) {
+        return _lineWidth + 2.5;
+    }
+    return 0;
 }
 
 static inline float AngleFromNorth(CGPoint p1, CGPoint p2, BOOL flipped) {
