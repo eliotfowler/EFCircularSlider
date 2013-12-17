@@ -22,29 +22,50 @@
     NSArray* labelsEvenSpacing;
 }
 
+- (void)defauts {
+    // Defaults
+    _maximumValue = 100.0f;
+    _minimumValue = 0.0f;
+    _currentValue = 0.0f;
+    _lineWidth = 5;
+    _unfilledColor = [UIColor blackColor];
+    _filledColor = [UIColor redColor];
+    _handleColor = _filledColor;
+    _labelFont = [UIFont systemFontOfSize:10.0f];
+    _snapToLabels = NO;
+    _handleType = EFSemiTransparentWhiteCircle;
+    _labelColor = [UIColor redColor];
+    
+    self.backgroundColor = [UIColor clearColor];
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Defaults
-        _maximumValue = 100.0f;
-        _minimumValue = 0.0f;
-        _currentValue = 0.0f;
-        _lineWidth = 5;
-        _unfilledColor = [UIColor blackColor];
-        _filledColor = [UIColor redColor];
-        _handleColor = _filledColor;
-        _labelFont = [UIFont systemFontOfSize:10.0f];
-        _snapToLabels = NO;
-        _handleType = EFSemiTransparentWhiteCircle;
-        _labelColor = [UIColor redColor];
+        [self defauts];
         
-        angle = 0;
-        radius = self.frame.size.height/2 - _lineWidth/2 - 10;
-        
-        self.backgroundColor = [UIColor clearColor];
+        [self setFrame:frame];
     }
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if ((self=[super initWithCoder:aDecoder])){
+        [self defauts];
+    }
+    
+    return self;
+}
+
+
+#pragma mark - Setter/Getter
+
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    
+    angle = 0;
+    radius = self.frame.size.height/2 - _lineWidth/2 - 10;
 }
 
 #pragma mark - drawing methods
