@@ -22,7 +22,7 @@
     NSArray* labelsEvenSpacing;
 }
 
-- (void)defauts {
+- (void)defaults {
     // Defaults
     _maximumValue = 100.0f;
     _minimumValue = 0.0f;
@@ -43,7 +43,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self defauts];
+        [self defaults];
         
         [self setFrame:frame];
     }
@@ -52,7 +52,7 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if ((self=[super initWithCoder:aDecoder])){
-        [self defauts];
+        [self defaults];
     }
     
     return self;
