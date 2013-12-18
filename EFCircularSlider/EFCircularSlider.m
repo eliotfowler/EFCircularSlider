@@ -64,8 +64,18 @@
 - (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
     
-    angle = 0;
+    angle = [self angleFromValue];
     radius = self.frame.size.height/2 - _lineWidth/2 - 10;
+}
+
+- (void)setCurrentValue:(float)currentValue {
+    _currentValue=currentValue;
+    
+    if(_currentValue>_maximumValue) _currentValue=_maximumValue;
+    else if(_currentValue<_minimumValue) _currentValue=_minimumValue;
+    
+    angle = [self angleFromValue];
+    [self setNeedsLayout];
 }
 
 #pragma mark - drawing methods
@@ -273,6 +283,16 @@ static inline float AngleFromNorth(CGPoint p1, CGPoint p2, BOOL flipped) {
     }
     fixedAngle = _currentValue;
     return (_currentValue*(_maximumValue - _minimumValue))/360.0f;
+}
+
+- (float)angleFromValue {
+    if(_currentValue == 0) {
+        angle = _currentValue;
+    } else {
+        angle = 270 - _currentValue - 90;
+    }
+    
+    return (angle/(_maximumValue + _minimumValue))*360.0f;
 }
 
 - (CGFloat) widthOfString:(NSString *)string withFont:(UIFont*)font {
