@@ -76,6 +76,7 @@
     
     angle = [self angleFromValue];
     [self setNeedsLayout];
+    [self setNeedsDisplay];
 }
 
 #pragma mark - drawing methods
@@ -286,13 +287,11 @@ static inline float AngleFromNorth(CGPoint p1, CGPoint p2, BOOL flipped) {
 }
 
 - (float)angleFromValue {
-    if(_currentValue == 0) {
-        angle = _currentValue;
-    } else {
-        angle = 270 - _currentValue - 90;
-    }
+    angle = 360 - (360.0f*_currentValue/_maximumValue);
     
-    return (angle/(_maximumValue + _minimumValue))*360.0f;
+    if(angle==360) angle=0;
+    
+    return angle;
 }
 
 - (CGFloat) widthOfString:(NSString *)string withFont:(UIFont*)font {
