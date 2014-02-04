@@ -198,18 +198,17 @@
 -(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
     [super endTrackingWithTouch:touch withEvent:event];
     if(_snapToLabels && labelsEvenSpacing != nil) {
-        CGPoint bestGuessPoint;
+        CGFloat newAngle=0;
         float minDist = 360;
         for (int i=0; i<[labelsEvenSpacing count]; i++) {
             CGFloat percentageAlongCircle = i/(float)[labelsEvenSpacing count];
             CGFloat degreesForLabel = percentageAlongCircle * 360;
             if(abs(fixedAngle - degreesForLabel) < minDist) {
+                newAngle=degreesForLabel ? 360 - degreesForLabel : 0;
                 minDist = abs(fixedAngle - degreesForLabel);
-                bestGuessPoint = [self pointFromAngle:degreesForLabel + 90 + 180];
             }
         }
-        CGPoint centerPoint = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
-        angle = floor(AngleFromNorth(centerPoint, bestGuessPoint, NO));
+        angle = newAngle;
         _currentValue = [self valueFromAngle];
         [self setNeedsDisplay];
     }
