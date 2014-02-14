@@ -78,6 +78,7 @@
     angle = [self angleFromValue];
     [self setNeedsLayout];
     [self setNeedsDisplay];
+    [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
 #pragma mark - drawing methods
