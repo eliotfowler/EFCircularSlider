@@ -78,7 +78,7 @@ circularSlider.minimumValue = 100.0f;
 
 ####currentValue:(float) - Default 0.0f
 
-Whenever the slider changes position, this value will change. It will be a normalized value based on the minimuimValue and maximumValue properties. **It is currently unsupported to set this value and have it change the slider.**
+Whenever the slider changes position, this value will change. It will be a normalized value based on the minimuimValue and maximumValue properties.
 
 You can get the currentValue with:
 
