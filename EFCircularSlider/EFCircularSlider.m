@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <CoreImage/CoreImage.h>
 
+#define kDefaultFontSize 14.0f;
 #define ToRad(deg) 		( (M_PI * (deg)) / 180.0 )
 #define ToDeg(rad)		( (180.0 * (rad)) / M_PI )
 #define SQR(x)			( (x) * (x) )
@@ -156,22 +157,35 @@
         return;
     } else {
         NSDictionary *attributes = @{ NSFontAttributeName: _labelFont,
-                                      NSForegroundColorAttributeName: _labelColor};
-        int distanceToMove = -[self circleDiameter]/2 - _labelFont.pointSize;
+                                      NSForegroundColorAttributeName: _labelColor
+                                    };
         
-        for (int i=0; i<[labelsEvenSpacing count]; i++) {
-            NSString* label = [labelsEvenSpacing objectAtIndex:[labelsEvenSpacing count] - i - 1];
-            CGFloat percentageAlongCircle = i/(float)[labelsEvenSpacing count];
-            CGFloat degreesForLabel = percentageAlongCircle * 360;
-            CGSize labelSize=CGSizeMake([self widthOfString:label withFont:_labelFont], [self heightOfString:label withFont:_labelFont]);
-            CGPoint closestPointOnCircleToLabel = [self pointFromAngle:degreesForLabel withObjectSize:labelSize];
+        CGFloat fontSize = ceilf(_labelFont.pointSize);
+        
+        NSInteger fontSizeDifferenceFromDefault = fontSize - kDefaultFontSize;
+        
+        NSInteger distanceToMove = -((self.lineWidth * 1.5) + fontSizeDifferenceFromDefault);
+        
+        for (int i=0; i<[labelsEvenSpacing count]; i++)
+        {
+            NSString *label = [labelsEvenSpacing objectAtIndex:[labelsEvenSpacing count] - i - 1];
             
-            CGRect labelLocation = CGRectMake(closestPointOnCircleToLabel.x, closestPointOnCircleToLabel.y, labelSize.width, labelSize.height);
+            CGFloat percentageAlongCircle = i/(float)[labelsEvenSpacing count];
+            
+            CGFloat degreesForLabel = percentageAlongCircle * 360;
+            
+            CGPoint closestPointOnCircleToLabel = [self pointFromAngle:degreesForLabel];
+            
+            CGRect labelLocation = CGRectIntegral(CGRectMake(closestPointOnCircleToLabel.x, closestPointOnCircleToLabel.y, [self widthOfString:label withFont:_labelFont], [self heightOfString:label withFont:_labelFont]));
             
             CGPoint centerPoint = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+            
             float radiansTowardsCenter = ToRad(AngleFromNorth(centerPoint, closestPointOnCircleToLabel, NO));
-            labelLocation.origin.x = (labelLocation.origin.x + distanceToMove * cos(radiansTowardsCenter));
-            labelLocation.origin.y = (labelLocation.origin.y + distanceToMove * sin(radiansTowardsCenter));
+            
+            labelLocation.origin.x =  ceilf((labelLocation.origin.x + (self.lineWidth/2) + distanceToMove * cos(radiansTowardsCenter)) - labelLocation.size.width/2);
+            
+            labelLocation.origin.y = ceilf((labelLocation.origin.y + (self.lineWidth/2) + distanceToMove * sin(radiansTowardsCenter))- labelLocation.size.height/2);
+            
             [label drawInRect:labelLocation withAttributes:attributes];
         }
     }
