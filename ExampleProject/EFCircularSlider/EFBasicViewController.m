@@ -23,6 +23,7 @@
     EFCircularSlider* circularSlider = [[EFCircularSlider alloc] initWithFrame:sliderFrame];
     [circularSlider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:circularSlider];
+    [circularSlider setCurrentValue:10.0f];
 }
 
 -(void)valueChanged:(EFCircularSlider*)slider {
