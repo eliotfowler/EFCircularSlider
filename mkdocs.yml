@@ -1,2 +1,4 @@
 site_name: EFCircularSlider
 site_dir: '.'
+repo_url: http://www.github.com/eliotfowler/EFCircularSlider
+theme: slate
