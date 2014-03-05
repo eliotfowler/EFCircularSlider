@@ -1,12 +1,5 @@
 body {
     padding-top: 70px;
-    background: url(../img/grid.png) repeat-x;
-    background-attachment: fixed;
-    background-color: #f8f8f8;
-}
-
-body > div.container {
-    min-height: 400px;
 }
 
 ul.nav li.main {
@@ -19,58 +12,6 @@ div.col-md-3 {
 
 div.source-links {
     float: right;
-}
-
-div.col-md-9 img {
-    max-width: 100%;
-    display: block;
-    padding: 4px;
-    line-height: 1.428571429;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin: 20px auto 30px auto;
-}
-
-h1, h2, h3 {
-    color: #444;
-}
-
-h1 {
-    font-weight: 400;
-    font-size: 42px;
-}
-
-h2, h3, h4, h5, h6 {
-    font-weight: 300;
-}
-
-hr {
-    border-top: 1px solid #aaa;
-}
-
-pre {
-    overflow: auto;
-}
-
-pre code {
-    word-wrap: normal;
-    white-space: pre;
-}
-
-div.well, pre.well {
-    background-color: #eee;
-}
-
-footer {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    text-align: center;
-    font-weight: 200;
-}
-
-.modal-dialog {
-    margin-top: 60px;
 }
 
 /*
@@ -91,6 +32,8 @@ footer {
 
 /* First level of nav */
 .bs-sidenav {
+    margin-top: 30px;
+    margin-bottom: 30px;
     padding-top:    10px;
     padding-bottom: 10px;
     border-radius: 5px;
