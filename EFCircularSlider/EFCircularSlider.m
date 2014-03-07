@@ -157,9 +157,11 @@
     if(labelsEvenSpacing == nil || [labelsEvenSpacing count] == 0) {
         return;
     } else {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0
         NSDictionary *attributes = @{ NSFontAttributeName: _labelFont,
                                       NSForegroundColorAttributeName: _labelColor
-                                    };
+                                      };
+#endif
         
         CGFloat fontSize = ceilf(_labelFont.pointSize);
         
@@ -187,7 +189,12 @@
             
             labelLocation.origin.y = ceilf((labelLocation.origin.y + (self.lineWidth/2) + distanceToMove * sin(radiansTowardsCenter))- labelLocation.size.height/2);
             
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0
             [label drawInRect:labelLocation withAttributes:attributes];
+#else
+            [_labelColor setFill];
+            [label drawInRect:labelLocation withFont:_labelFont];
+#endif
         }
     }
 }
