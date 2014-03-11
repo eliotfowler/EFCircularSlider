@@ -153,6 +153,15 @@
     CGContextRestoreGState(ctx);
 }
 
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    CGPoint p1 = [self centerPoint];
+    CGPoint p2 = point;
+    CGFloat xDist = (p2.x - p1.x);
+    CGFloat yDist = (p2.y - p1.y);
+    double distance = sqrt((xDist * xDist) + (yDist * yDist));
+    return distance < radius + 11;
+}
+
 -(void) drawLabels:(CGContextRef)ctx {
     if(labelsEvenSpacing == nil || [labelsEvenSpacing count] == 0) {
         return;
@@ -230,11 +239,16 @@
 }
 
 -(void)moveHandle:(CGPoint)point {
-    CGPoint centerPoint = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+    CGPoint centerPoint;
+    centerPoint = [self centerPoint];
     int currentAngle = floor(AngleFromNorth(centerPoint, point, NO));
     angle = 360 - 90 - currentAngle;
     _currentValue = [self valueFromAngle];
     [self setNeedsDisplay];
+}
+
+- (CGPoint)centerPoint {
+    return CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
 }
 
 #pragma mark - helper functions
