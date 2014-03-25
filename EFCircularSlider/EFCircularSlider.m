@@ -170,7 +170,7 @@
     CGFloat xDist = (p2.x - p1.x);
     CGFloat yDist = (p2.y - p1.y);
     double distance = sqrt((xDist * xDist) + (yDist * yDist));
-    return distance < radius + 11;
+    return distance < self.radius + 11;
 }
 
 -(void) drawLabels:(CGContextRef)ctx {
@@ -203,8 +203,6 @@
             
             labelLocation.origin.x = (labelLocation.origin.x + distanceToMove * cos(radiansTowardsCenter));
             labelLocation.origin.y = (labelLocation.origin.y + distanceToMove * sin(radiansTowardsCenter));
-            
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0
             
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0
             [label drawInRect:labelLocation withAttributes:attributes];
