@@ -185,6 +185,13 @@ NSArray* hoursArray = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"
 [circularSlider setInnerMarkingLabels:hoursArray];
 ``` 
 
+Alarm Clock Demo Design
+-----------------------
+
+The alarm clock demo design is an implemented version of a design from Micael Sambora on Dribbble and can be found [here](http://dribbble.com/shots/1293874-AlarmClock-final?list=searches&tag=alarm_clock&offset=102).
+
+More information about Michael Sambora can be found at his [personal website](http://samborek.pl/).
+
 About the developer
 -------------------
 
