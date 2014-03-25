@@ -42,6 +42,7 @@
     _snapToLabels = NO;
     _handleType = EFSemiTransparentWhiteCircle;
     _labelColor = [UIColor redColor];
+    _labelDisplacement = 2;
     
     self.backgroundColor = [UIColor clearColor];
 }
@@ -184,29 +185,26 @@
         
         CGFloat fontSize = ceilf(_labelFont.pointSize);
         
-        NSInteger fontSizeDifferenceFromDefault = fontSize - kDefaultFontSize;
-        
-        NSInteger distanceToMove = -((self.lineWidth * 1.5) + fontSizeDifferenceFromDefault);
+        NSInteger distanceToMove = -[self circleDiameter]/2 - fontSize/2 - _labelDisplacement;
         
         for (int i=0; i<[labelsEvenSpacing count]; i++)
         {
             NSString *label = [labelsEvenSpacing objectAtIndex:[labelsEvenSpacing count] - i - 1];
-            
             CGFloat percentageAlongCircle = i/(float)[labelsEvenSpacing count];
-            
             CGFloat degreesForLabel = percentageAlongCircle * 360;
             
-            CGPoint closestPointOnCircleToLabel = [self pointFromAngle:degreesForLabel];
-            
-            CGRect labelLocation = CGRectIntegral(CGRectMake(closestPointOnCircleToLabel.x, closestPointOnCircleToLabel.y, [self widthOfString:label withFont:_labelFont], [self heightOfString:label withFont:_labelFont]));
+            CGSize labelSize=CGSizeMake([self widthOfString:label withFont:_labelFont], [self heightOfString:label withFont:_labelFont]);
+            CGPoint closestPointOnCircleToLabel = [self pointFromAngle:degreesForLabel withObjectSize:labelSize];
+
+            CGRect labelLocation = CGRectMake(closestPointOnCircleToLabel.x, closestPointOnCircleToLabel.y, labelSize.width, labelSize.height);
             
             CGPoint centerPoint = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
-            
             float radiansTowardsCenter = ToRad(AngleFromNorth(centerPoint, closestPointOnCircleToLabel, NO));
             
-            labelLocation.origin.x =  ceilf((labelLocation.origin.x + (self.lineWidth/2) + distanceToMove * cos(radiansTowardsCenter)) - labelLocation.size.width/2);
+            labelLocation.origin.x = (labelLocation.origin.x + distanceToMove * cos(radiansTowardsCenter));
+            labelLocation.origin.y = (labelLocation.origin.y + distanceToMove * sin(radiansTowardsCenter));
             
-            labelLocation.origin.y = ceilf((labelLocation.origin.y + (self.lineWidth/2) + distanceToMove * sin(radiansTowardsCenter))- labelLocation.size.height/2);
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0
             
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_7_0
             [label drawInRect:labelLocation withAttributes:attributes];

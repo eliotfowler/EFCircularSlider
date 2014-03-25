@@ -32,6 +32,7 @@ typedef NS_ENUM(NSInteger, EFHandleType) {
 
 @property (nonatomic, strong) UIFont* labelFont;
 @property (nonatomic, strong) UIColor* labelColor;
+@property (nonatomic, assign) NSInteger labelDisplacement;
 @property (nonatomic) BOOL snapToLabels;
 
 
