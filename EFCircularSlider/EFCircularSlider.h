@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, EFHandleType) {
 @property (nonatomic) float currentValue;
 
 @property (nonatomic) int lineWidth;
+@property (nonatomic) int lineRadiusDisplacement;
 @property (nonatomic, strong) UIColor* filledColor;
 @property (nonatomic, strong) UIColor* unfilledColor;
 
