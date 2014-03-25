@@ -28,6 +28,8 @@
 		73AA227C185102560019641B /* EFWithLabelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AA227B185102560019641B /* EFWithLabelsViewController.m */; };
 		73AA227F1851030B0019641B /* EFSnapToLabelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AA227E1851030B0019641B /* EFSnapToLabelsViewController.m */; };
 		73AA2282185103BC0019641B /* EFTimePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AA2281185103BC0019641B /* EFTimePickerViewController.m */; };
+		9F44EB0418DC32FD00CA0945 /* EFBigLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F44EB0318DC32FD00CA0945 /* EFBigLineViewController.m */; };
+		9F44EB0618DC365400CA0945 /* label_position.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F44EB0518DC365400CA0945 /* label_position.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,9 @@
 		73AA227E1851030B0019641B /* EFSnapToLabelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFSnapToLabelsViewController.m; sourceTree = "<group>"; };
 		73AA2280185103BC0019641B /* EFTimePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFTimePickerViewController.h; sourceTree = "<group>"; };
 		73AA2281185103BC0019641B /* EFTimePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFTimePickerViewController.m; sourceTree = "<group>"; };
+		9F44EB0218DC32FD00CA0945 /* EFBigLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBigLineViewController.h; sourceTree = "<group>"; };
+		9F44EB0318DC32FD00CA0945 /* EFBigLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBigLineViewController.m; sourceTree = "<group>"; };
+		9F44EB0518DC365400CA0945 /* label_position.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = label_position.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +151,7 @@
 				2638776A1857686D00069D17 /* EFCircularSlider */,
 				73AA223B184F85BF0019641B /* Main.storyboard */,
 				73AA2241184F85BF0019641B /* Images.xcassets */,
+				9F44EB0518DC365400CA0945 /* label_position.png */,
 				73AA22701850F3340019641B /* ViewControllers */,
 				73AA2230184F85BF0019641B /* Supporting Files */,
 			);
@@ -196,6 +202,8 @@
 				73AA2278185101F60019641B /* EFDoubleCircleViewController.m */,
 				73AA227A185102560019641B /* EFWithLabelsViewController.h */,
 				73AA227B185102560019641B /* EFWithLabelsViewController.m */,
+				9F44EB0218DC32FD00CA0945 /* EFBigLineViewController.h */,
+				9F44EB0318DC32FD00CA0945 /* EFBigLineViewController.m */,
 				73AA227D1851030B0019641B /* EFSnapToLabelsViewController.h */,
 				73AA227E1851030B0019641B /* EFSnapToLabelsViewController.m */,
 				73AA2280185103BC0019641B /* EFTimePickerViewController.h */,
@@ -285,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73AA2242184F85BF0019641B /* Images.xcassets in Resources */,
+				9F44EB0618DC365400CA0945 /* label_position.png in Resources */,
 				73AA2234184F85BF0019641B /* InfoPlist.strings in Resources */,
 				73AA223D184F85BF0019641B /* Main.storyboard in Resources */,
 			);
@@ -309,6 +318,7 @@
 				73AA2276185100B70019641B /* EFBigCircleHandleViewController.m in Sources */,
 				73AA2282185103BC0019641B /* EFTimePickerViewController.m in Sources */,
 				73AA227F1851030B0019641B /* EFSnapToLabelsViewController.m in Sources */,
+				9F44EB0418DC32FD00CA0945 /* EFBigLineViewController.m in Sources */,
 				73AA2279185101F60019641B /* EFDoubleCircleViewController.m in Sources */,
 				73AA2240184F85BF0019641B /* EFBasicViewController.m in Sources */,
 				73AA2236184F85BF0019641B /* main.m in Sources */,
