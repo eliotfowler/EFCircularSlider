@@ -77,7 +77,7 @@
 
 - (CGFloat)radius {
     //radius = self.frame.size.height/2 - [self circleDiameter]/2;
-    return self.frame.size.height/2 - _lineWidth/2 - ([self circleDiameter]-_lineWidth) - _lineRadiusDisplacement;
+    return self.frame.size.height/2 - _lineWidth/2 - ([self circleDiameter]-_lineWidth) - _lineRadiusDisplacement - 1;
 }
 
 - (void)setCurrentValue:(float)currentValue {
