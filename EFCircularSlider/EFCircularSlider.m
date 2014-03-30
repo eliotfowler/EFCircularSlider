@@ -237,7 +237,7 @@
     if(_snapToLabels && labelsEvenSpacing != nil) {
         CGFloat newAngle=0;
         float minDist = 360;
-        for (int i=0; i<[labelsEvenSpacing count]; i++) {
+        for (int i=0; i<[labelsEvenSpacing count]+1; i++) {
             CGFloat percentageAlongCircle = i/(float)[labelsEvenSpacing count];
             CGFloat degreesForLabel = percentageAlongCircle * 360;
             if(abs(fixedAngle - degreesForLabel) < minDist) {
