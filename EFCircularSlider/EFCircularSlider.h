@@ -35,7 +35,12 @@ typedef NS_ENUM(NSInteger, EFHandleType) {
 @property (nonatomic, assign) NSInteger labelDisplacement;
 @property (nonatomic) BOOL snapToLabels;
 
-
+/**
+ Calling this method sets currentValue of `EFCircularSlider` without triggering UIControlEventValueChanged action.
+ 
+ @param currentValue value for `EFCircularSlider`
+ */
+-(void)setCurrentValueManually:(float)currentValue;
 
 -(void)setInnerMarkingLabels:(NSArray*)labels;
 

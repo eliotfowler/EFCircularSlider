@@ -80,7 +80,8 @@
     return self.frame.size.height/2 - _lineWidth/2 - ([self circleDiameter]-_lineWidth) - _lineRadiusDisplacement;
 }
 
-- (void)setCurrentValue:(float)currentValue {
+-(void)setCurrentValue:(float)currentValue withActions:(BOOL)actions
+{
     _currentValue=currentValue;
     
     if(_currentValue>_maximumValue) _currentValue=_maximumValue;
@@ -89,7 +90,21 @@
     angle = [self angleFromValue];
     [self setNeedsLayout];
     [self setNeedsDisplay];
-    [self sendActionsForControlEvents:UIControlEventValueChanged];
+    
+    if (actions)
+    {
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
+    }
+}
+
+- (void)setCurrentValue:(float)currentValue
+{
+    [self setCurrentValue:currentValue withActions:YES];
+}
+
+-(void)setCurrentValueManually:(float)currentValue
+{
+    [self setCurrentValue:currentValue withActions:NO];
 }
 
 #pragma mark - drawing methods
