@@ -7,7 +7,7 @@
 //
 
 #import "EFTimePickerViewController.h"
-#import "EFCircularSlider.h"
+#import "Legacy-EFCircularSlider.h"
 
 @interface EFTimePickerViewController ()
 

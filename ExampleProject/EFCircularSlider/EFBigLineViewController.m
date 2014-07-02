@@ -7,7 +7,7 @@
 //
 
 #import "EFBigLineViewController.h"
-#import "EFCircularSlider.h"
+#import "Legacy-EFCircularSlider.h"
 
 @interface EFBigLineViewController ()
 

@@ -7,7 +7,7 @@
 //
 
 #import "EFDoubleCircleViewController.h"
-#import "EFCircularSlider.h"
+#import "Legacy-EFCircularSlider.h"
 
 @interface EFDoubleCircleViewController ()
 

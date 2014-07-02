@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2638776D1857686D00069D17 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2638776C1857686D00069D17 /* EFCircularSlider.m */; };
+		2638776D1857686D00069D17 /* Legacy-EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2638776C1857686D00069D17 /* Legacy-EFCircularSlider.m */; };
 		73AA222A184F85BF0019641B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA2229184F85BF0019641B /* Foundation.framework */; };
 		73AA222C184F85BF0019641B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA222B184F85BF0019641B /* CoreGraphics.framework */; };
 		73AA222E184F85BF0019641B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA222D184F85BF0019641B /* UIKit.framework */; };
@@ -43,8 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2638776B1857686D00069D17 /* EFCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFCircularSlider.h; sourceTree = "<group>"; };
-		2638776C1857686D00069D17 /* EFCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFCircularSlider.m; sourceTree = "<group>"; };
+		2638776B1857686D00069D17 /* Legacy-EFCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Legacy-EFCircularSlider.h"; sourceTree = "<group>"; };
+		2638776C1857686D00069D17 /* Legacy-EFCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Legacy-EFCircularSlider.m"; sourceTree = "<group>"; };
 		73AA2226184F85BF0019641B /* EFCircularSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EFCircularSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73AA2229184F85BF0019641B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		73AA222B184F85BF0019641B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -108,8 +108,8 @@
 		2638776A1857686D00069D17 /* EFCircularSlider */ = {
 			isa = PBXGroup;
 			children = (
-				2638776B1857686D00069D17 /* EFCircularSlider.h */,
-				2638776C1857686D00069D17 /* EFCircularSlider.m */,
+				2638776B1857686D00069D17 /* Legacy-EFCircularSlider.h */,
+				2638776C1857686D00069D17 /* Legacy-EFCircularSlider.m */,
 			);
 			name = EFCircularSlider;
 			path = ../../EFCircularSlider;
@@ -323,7 +323,7 @@
 				73AA2240184F85BF0019641B /* EFBasicViewController.m in Sources */,
 				73AA2236184F85BF0019641B /* main.m in Sources */,
 				73AA22731850F3720019641B /* EFDemoListViewController.m in Sources */,
-				2638776D1857686D00069D17 /* EFCircularSlider.m in Sources */,
+				2638776D1857686D00069D17 /* Legacy-EFCircularSlider.m in Sources */,
 				73AA223A184F85BF0019641B /* EFAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

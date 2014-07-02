@@ -7,7 +7,7 @@
 //
 
 #import "EFBigCircleHandleViewController.h"
-#import "EFCircularSlider.h"
+#import "Legacy-EFCircularSlider.h"
 
 @interface EFBigCircleHandleViewController ()
 

@@ -7,7 +7,7 @@
 //
 
 #import "EFBasicViewController.h"
-#import "EFCircularSlider.h"
+#import "Legacy-EFCircularSlider.h"
 
 @interface EFBasicViewController ()
 

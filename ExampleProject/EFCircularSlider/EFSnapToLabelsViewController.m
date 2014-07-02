@@ -7,7 +7,7 @@
 //
 
 #import "EFSnapToLabelsViewController.h"
-#import "EFCircularSlider.h"
+#import "Legacy-EFCircularSlider.h"
 
 @interface EFSnapToLabelsViewController ()
 

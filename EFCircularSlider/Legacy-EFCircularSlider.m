@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Eliot Fowler. All rights reserved.
 //
 
-#import "EFCircularSlider.h"
+#import "Legacy-EFCircularSlider.h"
 #import <QuartzCore/QuartzCore.h>
 #import <CoreImage/CoreImage.h>
 
