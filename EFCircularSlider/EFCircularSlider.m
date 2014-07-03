@@ -71,6 +71,7 @@ static const CGFloat kFitFrameRadius = -1.0;
     _snapToLabels  = NO;
     _handleType    = CircularSliderHandleTypeSemiTransparentWhiteCircle;
     _labelColor    = [UIColor redColor];
+    _labelDisplacement = 0;
     
     _angleFromNorth = 0;
     
@@ -227,24 +228,6 @@ static const CGFloat kFitFrameRadius = -1.0;
     return newHandleColor;
 }
 
-#pragma mark - Convenience methods
--(CGFloat)innerDiameter
-{
-    return (2 * self.radius) - self.lineWidth;
-}
-
--(CGFloat) touchableInnerDiameter
-{
-    CGFloat innerDiameter = self.innerDiameter;
-    if (self.handleWidth > self.lineWidth)
-    {
-        // Handle is larger, need to adjust innerDiameter to area inside handle
-        innerDiameter -= (self.handleWidth - self.lineWidth);
-    }
-    
-    return innerDiameter - (2 * 20); // 20px padding inside innerDiameter
-}
-
 #pragma mark - Private getter overrides
 
 -(CGFloat) handleWidth
@@ -257,7 +240,7 @@ static const CGFloat kFitFrameRadius = -1.0;
         }
         case CircularSliderHandleTypeBigCircle:
         {
-            return self.lineWidth + 5; // 5px bigger than standard handles
+            return self.lineWidth + 5; // 5 points bigger than standard handles
         }
         case CircularSliderHandleTypeDoubleCircleWithClosedCenter:
         case CircularSliderHandleTypeDoubleCircleWithOpenCenter:
@@ -288,7 +271,7 @@ static const CGFloat kFitFrameRadius = -1.0;
 
 -(CGFloat)innerLabelRadialDistanceFromCircumference
 {
-    // Labels should be moved far enough to clear the line itself plus a small offset (relative to radius).
+    // Labels should be moved far enough to clear the line itself plus a fixed offset (relative to radius).
     int distanceToMoveInwards  = 0.1 * -(self.radius) - 0.5 * self.lineWidth;
         distanceToMoveInwards -= 0.5 * self.labelFont.pointSize; // Also account for variable font size.
     return distanceToMoveInwards;
@@ -326,6 +309,40 @@ static const CGFloat kFitFrameRadius = -1.0;
     
     // Add the labels
     [self drawInnerLabels:ctx];
+}
+
+
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    if ([self pointInsideHandle:point withEvent:event])
+    {
+        return YES; // Point is indeed within handle bounds
+    }
+    else
+    {
+        return [self pointInsideCircle:point withEvent:event]; // Return YES if point is inside slider's circle
+    }
+}
+
+- (BOOL)pointInsideCircle:(CGPoint)point withEvent:(UIEvent *)event {
+    CGPoint p1 = [self centerPoint];
+    CGPoint p2 = point;
+    CGFloat xDist = (p2.x - p1.x);
+    CGFloat yDist = (p2.y - p1.y);
+    double distance = sqrt((xDist * xDist) + (yDist * yDist));
+    return distance < self.radius + self.lineWidth * 0.5;
+}
+
+- (BOOL)pointInsideHandle:(CGPoint)point withEvent:(UIEvent *)event {
+    CGPoint handleCenter = [self pointOnCircleAtAngleFromNorth:self.angleFromNorth];
+    CGFloat handleRadius = MAX(self.handleWidth, 44.0) * 0.5;
+    // Adhere to apple's design guidelines - avoid making touch targets smaller than 44 points
+    
+    // Treat handle as a box around it's center
+    BOOL pointInsideHorzontalHandleBounds = (point.x >= handleCenter.x - handleRadius
+                                             && point.x <= handleCenter.x + handleRadius);
+    BOOL pointInsideVerticalHandleBounds  = (point.y >= handleCenter.y - handleRadius
+                                             && point.y <= handleCenter.y + handleRadius);
+    return pointInsideHorzontalHandleBounds && pointInsideVerticalHandleBounds;
 }
 
 #pragma mark - Drawing methods
@@ -478,7 +495,7 @@ static const CGFloat kFitFrameRadius = -1.0;
     CGFloat percentageAlongCircle    = (index + 1) / (float)self.innerMarkingLabels.count;
     CGFloat degreesFromNorthForLabel = percentageAlongCircle * 360;
     
-    CGFloat radialDistance = self.innerLabelRadialDistanceFromCircumference;
+    CGFloat radialDistance = self.innerLabelRadialDistanceFromCircumference + self.labelDisplacement;
     CGPoint inwardOffset   = [EFCircularTrig pointOnRadius:radialDistance
                                             atAngleFromNorth:degreesFromNorthForLabel];
     

@@ -92,19 +92,13 @@ typedef enum : NSUInteger {
  */
 @property (nonatomic, strong) UIColor* labelColor;
 /**
+ *  Note: A negative value will move the label closer to the center. A positive value will move the label closer to the circumference
+ *  @property Value with which to displace all labels along radial line from center to slider circumference.
+ */
+@property (nonatomic) CGFloat labelDisplacement;
+/**
  *  @property Type of the handle to display to represent draggable current value
  */
 @property (nonatomic) CircularSliderHandleType handleType;
-
-#pragma mark - Convenience methods
-/**
- * @return CGFloat Diameter of area inside Circular Slider (excluding line)
- */
--(CGFloat)innerDiameter;
-
-/**
- *  @return CGFlot Diameter of area inside Circular Slider (with padding between handle/line to allow for approximate touches)
- */
--(CGFloat) touchableInnerDiameter;
 
 @end
