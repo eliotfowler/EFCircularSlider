@@ -62,16 +62,6 @@ typedef enum : NSUInteger {
  */
 @property (nonatomic, strong) NSArray *innerMarkingLabels;
 
-/**
- *  Note: The LAST label will appear at North/midnight
- *        The FIRST label will appear at the first interval after North/midnight
- *
- *  Autolayout: Height will dictate width also (assumes that labels are basically square)
- *
- *  @property NSArray of strings used to render labels at regular intervals outside the circle
- */
-@property (nonatomic, strong) NSArray *outerMarkingLabels;
-
 
 #pragma mark - Visual Customisation
 /**

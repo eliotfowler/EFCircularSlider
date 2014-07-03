@@ -19,7 +19,6 @@
 
 @property (nonatomic, readonly) CGFloat handleWidth;
 @property (nonatomic, readonly) CGFloat innerLabelRadialDistanceFromCircumference;
-@property (nonatomic, readonly) CGFloat outerLabelRadialDistanceFromCircumference;
 @property (nonatomic, readonly) CGPoint centerPoint;
 
 @property (nonatomic, readonly) CGFloat radiusForDoubleCircleOuterCircle;
@@ -128,14 +127,6 @@ static const CGFloat kFitFrameRadius = -1.0;
 {
     _innerMarkingLabels = innerMarkingLabels;
     [self setNeedsUpdateConstraints]; // This could affect intrinsic content size
-    [self setNeedsDisplay]; // Need to redraw with new label texts
-}
-
--(void)setOuterMarkingLabels:(NSArray*)outerMarkingLabels
-{
-    _outerMarkingLabels = outerMarkingLabels;
-    [self setNeedsUpdateConstraints]; // This could affect intrinsic content size
-    [self invalidateIntrinsicContentSize]; // Need to update intrinsice content size
     [self setNeedsDisplay]; // Need to redraw with new label texts
 }
 
@@ -272,7 +263,7 @@ static const CGFloat kFitFrameRadius = -1.0;
         case CircularSliderHandleTypeDoubleCircleWithOpenCenter:
         {
             return 2 * [EFCircularTrig outerRadiuOfUnfilledArcWithRadius:self.radiusForDoubleCircleOuterCircle
-                                                                 lineWidth:self.lineWidthForDoubleCircleOuterCircle];
+                                                               lineWidth:self.lineWidthForDoubleCircleOuterCircle];
         }
     }
 }
@@ -295,14 +286,6 @@ static const CGFloat kFitFrameRadius = -1.0;
     return 2.0;
 }
 
--(CGFloat)outerLabelRadialDistanceFromCircumference
-{
-    // Labels should be moved far enough to clear the line itself plus a small offset (relative to radius).
-    int distanceToMoveOutwards  = 0.1 * (self.radius) + 0.5 * self.lineWidth;
-    distanceToMoveOutwards += 0.5 * self.labelFont.pointSize; // Also account for variable font size.
-    return distanceToMoveOutwards;
-}
-
 -(CGFloat)innerLabelRadialDistanceFromCircumference
 {
     // Labels should be moved far enough to clear the line itself plus a small offset (relative to radius).
@@ -319,36 +302,14 @@ static const CGFloat kFitFrameRadius = -1.0;
 #pragma mark - Method overrides
 -(CGSize)intrinsicContentSize
 {
-    if (self.outerMarkingLabels)
-    {
-        // Total width is: diameter + (2 * (halfLineWidth + MAX(labelDistance, halfHandleWidth))
-        int diameter = self.radius * 2;
-        int halfLineWidth   = ceilf(self.lineWidth / 2.0);
-        int halfHandleWidth = ceilf(self.handleWidth / 2.0);
-
-        // Search for maximum vertical & horizontal offset
-        
-        // Vertical offset top label
-        NSUInteger maxIndex = self.outerMarkingLabels.count - 1;
-        CGSize labelSize    = [self sizeOfString:self.outerMarkingLabels[maxIndex] withFont:self.labelFont];
-        CGPoint offset      = [self offsetFromCircleForLabelAtIndex:maxIndex withSize:labelSize isInnerLabel:NO];
-        int labelHeight     = abs(offset.y);
-        
-        int heightWithHandle = diameter + (2 * (halfHandleWidth + MAX(labelHeight, halfLineWidth)));
-                
-        return CGSizeMake(heightWithHandle, heightWithHandle);
-    }
-    else
-    {
-        // Total width is: diameter + (2 * MAX(halfLineWidth, halfHandleWidth))
-        int diameter = self.radius * 2;
-        int halfLineWidth = ceilf(self.lineWidth / 2.0);
-        int halfHandleWidth = ceilf(self.handleWidth / 2.0);
-        
-        int widthWithHandle = diameter + (2 *  MAX(halfHandleWidth, halfLineWidth));
-        
-        return CGSizeMake(widthWithHandle, widthWithHandle);
-    }
+    // Total width is: diameter + (2 * MAX(halfLineWidth, halfHandleWidth))
+    int diameter = self.radius * 2;
+    int halfLineWidth = ceilf(self.lineWidth / 2.0);
+    int halfHandleWidth = ceilf(self.handleWidth / 2.0);
+    
+    int widthWithHandle = diameter + (2 *  MAX(halfHandleWidth, halfLineWidth));
+    
+    return CGSizeMake(widthWithHandle, widthWithHandle);
 }
 
 - (void)drawRect:(CGRect)rect
@@ -364,14 +325,7 @@ static const CGFloat kFitFrameRadius = -1.0;
     [self drawHandle:ctx];
     
     // Add the labels
-    if (self.outerMarkingLabels)
-    {
-        [self drawOuterLabels:ctx];
-    }
-    else
-    {
-        [self drawInnerLabels:ctx];
-    }
+    [self drawInnerLabels:ctx];
 }
 
 #pragma mark - Drawing methods
@@ -476,27 +430,6 @@ static const CGFloat kFitFrameRadius = -1.0;
     CGContextRestoreGState(ctx);
 }
 
--(void) drawOuterLabels:(CGContextRef)ctx
-{
-    // Only draw labels if they have been set
-    NSInteger labelsCount = self.outerMarkingLabels.count;
-    if(labelsCount)
-    {
-        NSDictionary *attributes = @{ NSFontAttributeName: self.labelFont,
-                                      NSForegroundColorAttributeName: self.labelColor};
-        
-        for (int i = 0; i < labelsCount; i++)
-        {
-            // Enumerate through labels clockwise
-            NSString* label = self.outerMarkingLabels[i];
-            
-            CGRect labelFrame = [self contextCoordinatesForLabelAtIndex:i isInnerLabel:NO];
-            
-            [label drawInRect:labelFrame withAttributes:attributes];
-        }
-    }
-}
-
 -(void) drawInnerLabels:(CGContextRef)ctx
 {
     // Only draw labels if they have been set
@@ -511,46 +444,35 @@ static const CGFloat kFitFrameRadius = -1.0;
             // Enumerate through labels clockwise
             NSString* label = self.innerMarkingLabels[i];
             
-            CGRect labelFrame = [self contextCoordinatesForLabelAtIndex:i isInnerLabel:YES];
+            CGRect labelFrame = [self contextCoordinatesForLabelAtIndex:i];
             
             [label drawInRect:labelFrame withAttributes:attributes];
         }
     }
 }
 
--(CGRect)contextCoordinatesForLabelAtIndex:(NSInteger)index isInnerLabel:(BOOL)innerLabel
+-(CGRect)contextCoordinatesForLabelAtIndex:(NSInteger)index
 {
-    NSUInteger labelsCount = innerLabel ? self.innerMarkingLabels.count : self.outerMarkingLabels.count;
-    NSString *label = nil;
+    NSString *label = self.innerMarkingLabels[index];
 
-    if (innerLabel)
-    {
-        label = self.innerMarkingLabels[index];
-    }
-    else
-    {
-        label = self.outerMarkingLabels[index];
-    }
     // Determine how many degrees around the full circle this label should go
-    CGFloat percentageAlongCircle    = (index + 1) / (float)labelsCount;
+    CGFloat percentageAlongCircle    = (index + 1) / (float)self.innerMarkingLabels.count;
     CGFloat degreesFromNorthForLabel = percentageAlongCircle * 360;
     CGPoint pointOnCircle = [self pointOnCircleAtAngleFromNorth:degreesFromNorthForLabel];
     
     CGSize  labelSize        = [self sizeOfString:label withFont:self.labelFont];
-    CGPoint offsetFromCircle = [self offsetFromCircleForLabelAtIndex:index withSize:labelSize isInnerLabel:innerLabel];
+    CGPoint offsetFromCircle = [self offsetFromCircleForLabelAtIndex:index withSize:labelSize];
 
     return CGRectMake(pointOnCircle.x + offsetFromCircle.x, pointOnCircle.y + offsetFromCircle.y, labelSize.width, labelSize.height);
 }
 
--(CGPoint) offsetFromCircleForLabelAtIndex:(NSInteger)index withSize:(CGSize)labelSize isInnerLabel:(BOOL)innerLabel
+-(CGPoint) offsetFromCircleForLabelAtIndex:(NSInteger)index withSize:(CGSize)labelSize
 {
-    NSUInteger labelsCount = innerLabel ? self.innerMarkingLabels.count : self.outerMarkingLabels.count;
-    
     // Determine how many degrees around the full circle this label should go
-    CGFloat percentageAlongCircle    = (index + 1) / (float)labelsCount;
+    CGFloat percentageAlongCircle    = (index + 1) / (float)self.innerMarkingLabels.count;
     CGFloat degreesFromNorthForLabel = percentageAlongCircle * 360;
     
-    CGFloat radialDistance = innerLabel ? self.innerLabelRadialDistanceFromCircumference : self.outerLabelRadialDistanceFromCircumference;
+    CGFloat radialDistance = self.innerLabelRadialDistanceFromCircumference;
     CGPoint inwardOffset   = [EFCircularTrig pointOnRadius:radialDistance
                                             atAngleFromNorth:degreesFromNorthForLabel];
     
