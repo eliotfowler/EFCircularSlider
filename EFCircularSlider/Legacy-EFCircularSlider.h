@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EFCircularSlider : UIControl
+@interface EFCircularSliderLegacy : UIControl
 
 typedef NS_ENUM(NSInteger, EFHandleType) {
     EFSemiTransparentWhiteCircle,

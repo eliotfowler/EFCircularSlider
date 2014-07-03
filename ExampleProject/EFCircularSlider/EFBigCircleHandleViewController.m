@@ -7,7 +7,7 @@
 //
 
 #import "EFBigCircleHandleViewController.h"
-#import "Legacy-EFCircularSlider.h"
+#import "EFCircularSlider.h"
 
 @interface EFBigCircleHandleViewController ()
 
@@ -30,7 +30,7 @@
 	
     CGRect sliderFrame = CGRectMake(60, 150, 200, 200);
     EFCircularSlider* circularSlider = [[EFCircularSlider alloc] initWithFrame:sliderFrame];
-    circularSlider.handleType = EFBigCircle;
+    circularSlider.handleType = CircularSliderHandleTypeBigCircle;
     circularSlider.handleColor = [UIColor blueColor];
     [self.view addSubview:circularSlider];
 }

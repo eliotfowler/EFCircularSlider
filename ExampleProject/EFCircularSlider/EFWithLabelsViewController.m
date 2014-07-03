@@ -7,7 +7,7 @@
 //
 
 #import "EFWithLabelsViewController.h"
-#import "Legacy-EFCircularSlider.h"
+#import "EFCircularSlider.h"
 
 @interface EFWithLabelsViewController ()
 

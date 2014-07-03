@@ -7,7 +7,7 @@
 //
 
 #import "EFTimePickerViewController.h"
-#import "Legacy-EFCircularSlider.h"
+#import "EFCircularSlider.h"
 
 @interface EFTimePickerViewController ()
 
@@ -41,7 +41,7 @@
     minuteSlider.minimumValue = 0;
     minuteSlider.maximumValue = 60;
     minuteSlider.labelColor = [UIColor colorWithRed:76/255.0f green:111/255.0f blue:137/255.0f alpha:1.0f];
-    minuteSlider.handleType = EFDoubleCircleWithOpenCenter;
+    minuteSlider.handleType = CircularSliderHandleTypeDoubleCircleWithOpenCenter;
     minuteSlider.handleColor = minuteSlider.filledColor;
     [self.view addSubview:minuteSlider];
     [minuteSlider addTarget:self action:@selector(minuteDidChange:) forControlEvents:UIControlEventValueChanged];
@@ -57,7 +57,7 @@
     hourSlider.minimumValue = 0;
     hourSlider.maximumValue = 12;
     hourSlider.labelColor = [UIColor colorWithRed:127/255.0f green:229/255.0f blue:255/255.0f alpha:1.0f];
-    hourSlider.handleType = EFBigCircle;
+    hourSlider.handleType = CircularSliderHandleTypeBigCircle;
     hourSlider.handleColor = hourSlider.filledColor;
     [self.view addSubview:hourSlider];
     [hourSlider addTarget:self action:@selector(hourDidChange:) forControlEvents:UIControlEventValueChanged];

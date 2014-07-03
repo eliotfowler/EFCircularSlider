@@ -15,13 +15,13 @@
 #define ToDeg(rad)		( (180.0 * (rad)) / M_PI )
 #define SQR(x)			( (x) * (x) )
 
-@interface EFCircularSlider (private)
+@interface EFCircularSliderLegacy (private)
 
 @property (readonly, nonatomic) CGFloat radius;
 
 @end
 
-@implementation EFCircularSlider {
+@implementation EFCircularSliderLegacy {
     int angle;
     int fixedAngle;
     NSMutableDictionary* labelsWithPercents;
