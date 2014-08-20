@@ -59,6 +59,16 @@ static const CGFloat kFitFrameRadius = -1.0;
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self)
+    {
+        [self initDefaultValuesWithRadius:kFitFrameRadius];
+    }
+    return self;
+}
+
 -(void) initDefaultValuesWithRadius:(CGFloat)radius
 {
     _radius        = radius;
