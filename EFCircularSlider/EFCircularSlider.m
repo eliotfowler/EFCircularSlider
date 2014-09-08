@@ -72,6 +72,7 @@ static const CGFloat kFitFrameRadius = -1.0;
     _handleType    = CircularSliderHandleTypeSemiTransparentWhiteCircle;
     _labelColor    = [UIColor redColor];
     _labelDisplacement = 0;
+    _continuous     =YES;
     
     _angleFromNorth = 0;
     
@@ -510,7 +511,9 @@ static const CGFloat kFitFrameRadius = -1.0;
     
     CGPoint lastPoint = [touch locationInView:self];
     [self moveHandle:lastPoint];
-    [self sendActionsForControlEvents:UIControlEventValueChanged];
+    if (self.continuous) {
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
+    }
     
     return YES;
 }
@@ -537,6 +540,10 @@ static const CGFloat kFitFrameRadius = -1.0;
         self.angleFromNorth = floor([EFCircularTrig angleRelativeToNorthFromPoint:self.centerPoint
                                                                              toPoint:bestGuessPoint]);
         [self setNeedsDisplay];
+    }
+    
+    if (!self.continuous) {
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
     }
 }
 
