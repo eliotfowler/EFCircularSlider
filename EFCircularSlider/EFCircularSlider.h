@@ -101,4 +101,10 @@ typedef enum : NSUInteger {
  */
 @property (nonatomic) CircularSliderHandleType handleType;
 
+#pragma mark - Events
+/**
+ *  If set to true value change events are triggered continuously. Otherwise only if the handle is released.
+ */
+@property (nonatomic) BOOL continuous;
+
 @end
