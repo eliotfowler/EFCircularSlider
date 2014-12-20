@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		367CDA821A45E9900012C6E9 /* EFImageHandleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 367CDA811A45E9900012C6E9 /* EFImageHandleViewController.m */; };
 		3778DB5919660E8E0082EC83 /* EFTwoSlidersAutoLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3778DB5819660E8E0082EC83 /* EFTwoSlidersAutoLayoutViewController.m */; };
 		37B6A230196476AD00E2D620 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A22D196476AD00E2D620 /* EFCircularSlider.m */; };
 		37B6A231196476AD00E2D620 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A22D196476AD00E2D620 /* EFCircularSlider.m */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		367CDA801A45E9900012C6E9 /* EFImageHandleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFImageHandleViewController.h; sourceTree = "<group>"; };
+		367CDA811A45E9900012C6E9 /* EFImageHandleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFImageHandleViewController.m; sourceTree = "<group>"; };
 		3778DB5719660E8E0082EC83 /* EFTwoSlidersAutoLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EFTwoSlidersAutoLayoutViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		3778DB5819660E8E0082EC83 /* EFTwoSlidersAutoLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EFTwoSlidersAutoLayoutViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		37B6A22C196476AD00E2D620 /* EFCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFCircularSlider.h; sourceTree = "<group>"; };
@@ -202,12 +205,12 @@
 		73AA22701850F3340019641B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				73AA22711850F3720019641B /* EFDemoListViewController.h */,
+				73AA22721850F3720019641B /* EFDemoListViewController.m */,
 				73AA223E184F85BF0019641B /* EFBasicViewController.h */,
 				73AA223F184F85BF0019641B /* EFBasicViewController.m */,
 				73AA2274185100B70019641B /* EFBigCircleHandleViewController.h */,
 				73AA2275185100B70019641B /* EFBigCircleHandleViewController.m */,
-				73AA22711850F3720019641B /* EFDemoListViewController.h */,
-				73AA22721850F3720019641B /* EFDemoListViewController.m */,
 				73AA2277185101F60019641B /* EFDoubleCircleViewController.h */,
 				73AA2278185101F60019641B /* EFDoubleCircleViewController.m */,
 				3778DB5719660E8E0082EC83 /* EFTwoSlidersAutoLayoutViewController.h */,
@@ -220,6 +223,8 @@
 				73AA227E1851030B0019641B /* EFSnapToLabelsViewController.m */,
 				73AA2280185103BC0019641B /* EFTimePickerViewController.h */,
 				73AA2281185103BC0019641B /* EFTimePickerViewController.m */,
+				367CDA801A45E9900012C6E9 /* EFImageHandleViewController.h */,
+				367CDA811A45E9900012C6E9 /* EFImageHandleViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 				73AA227C185102560019641B /* EFWithLabelsViewController.m in Sources */,
 				73AA2276185100B70019641B /* EFBigCircleHandleViewController.m in Sources */,
 				73AA2282185103BC0019641B /* EFTimePickerViewController.m in Sources */,
+				367CDA821A45E9900012C6E9 /* EFImageHandleViewController.m in Sources */,
 				73AA227F1851030B0019641B /* EFSnapToLabelsViewController.m in Sources */,
 				37B6A232196476AD00E2D620 /* EFCircularTrig.m in Sources */,
 				9F44EB0418DC32FD00CA0945 /* EFBigLineViewController.m in Sources */,

@@ -18,7 +18,8 @@ typedef enum : NSUInteger {
     CircularSliderHandleTypeSemiTransparentBlackCircle,
     CircularSliderHandleTypeDoubleCircleWithOpenCenter,
     CircularSliderHandleTypeDoubleCircleWithClosedCenter,
-    CircularSliderHandleTypeBigCircle
+    CircularSliderHandleTypeBigCircle,
+    CircularSliderHandleTypeImage
 } CircularSliderHandleType;
 
 #pragma mark - Default Autolayout initialiser
@@ -83,6 +84,12 @@ typedef enum : NSUInteger {
  *  @property Color of the handle
  */
 @property (nonatomic, strong) UIColor* handleColor;
+/**
+ *  Note: `handleType` must be set to `CircularSliderHandleTypeImage` for this image to be shown as handle.
+ * 
+ *  @property Image of the handle
+ */
+@property (nonatomic, strong) UIImage* handleImage;
 /**
  *  @property Font of the inner marking labels within the circle
  */

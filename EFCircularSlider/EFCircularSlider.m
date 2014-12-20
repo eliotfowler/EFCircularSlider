@@ -223,6 +223,7 @@ static const CGFloat kFitFrameRadius = -1.0;
             }
             break;
         }
+        case CircularSliderHandleTypeImage: break;
     }
     
     return newHandleColor;
@@ -248,6 +249,7 @@ static const CGFloat kFitFrameRadius = -1.0;
             return 2 * [EFCircularTrig outerRadiuOfUnfilledArcWithRadius:self.radiusForDoubleCircleOuterCircle
                                                                lineWidth:self.lineWidthForDoubleCircleOuterCircle];
         }
+        default: return 0.0;
     }
 }
 
@@ -416,6 +418,11 @@ static const CGFloat kFitFrameRadius = -1.0;
             
             break;
         }
+        case CircularSliderHandleTypeImage: {
+            CGSize imageSize = self.handleImage.size;
+            CGRect handleRect = (CGRect){.origin = CGPointMake(handleCenter.x - imageSize.width / 2.0, handleCenter.y - imageSize.height / 2.0), .size = imageSize};
+            [self.handleImage drawInRect:handleRect];
+        } break;
     }
     
     CGContextRestoreGState(ctx);
