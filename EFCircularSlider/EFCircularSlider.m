@@ -249,7 +249,8 @@ static const CGFloat kFitFrameRadius = -1.0;
             return 2 * [EFCircularTrig outerRadiuOfUnfilledArcWithRadius:self.radiusForDoubleCircleOuterCircle
                                                                lineWidth:self.lineWidthForDoubleCircleOuterCircle];
         }
-        default: return 0.0;
+        case CircularSliderHandleTypeImage:
+            return MAX(self.handleImage.size.width, self.handleImage.size.height);
     }
 }
 
