@@ -7,11 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3778DB5919660E8E0082EC83 /* EFTwoSlidersAutoLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3778DB5819660E8E0082EC83 /* EFTwoSlidersAutoLayoutViewController.m */; };
-		37B6A230196476AD00E2D620 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A22D196476AD00E2D620 /* EFCircularSlider.m */; };
-		37B6A231196476AD00E2D620 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A22D196476AD00E2D620 /* EFCircularSlider.m */; };
-		37B6A232196476AD00E2D620 /* EFCircularTrig.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A22F196476AD00E2D620 /* EFCircularTrig.m */; };
-		37B6A233196476AD00E2D620 /* EFCircularTrig.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B6A22F196476AD00E2D620 /* EFCircularTrig.m */; };
+		2638776D1857686D00069D17 /* EFCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 2638776C1857686D00069D17 /* EFCircularSlider.m */; };
 		73AA222A184F85BF0019641B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA2229184F85BF0019641B /* Foundation.framework */; };
 		73AA222C184F85BF0019641B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA222B184F85BF0019641B /* CoreGraphics.framework */; };
 		73AA222E184F85BF0019641B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73AA222D184F85BF0019641B /* UIKit.framework */; };
@@ -47,12 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3778DB5719660E8E0082EC83 /* EFTwoSlidersAutoLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = EFTwoSlidersAutoLayoutViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		3778DB5819660E8E0082EC83 /* EFTwoSlidersAutoLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = EFTwoSlidersAutoLayoutViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		37B6A22C196476AD00E2D620 /* EFCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFCircularSlider.h; sourceTree = "<group>"; };
-		37B6A22D196476AD00E2D620 /* EFCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFCircularSlider.m; sourceTree = "<group>"; };
-		37B6A22E196476AD00E2D620 /* EFCircularTrig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFCircularTrig.h; sourceTree = "<group>"; };
-		37B6A22F196476AD00E2D620 /* EFCircularTrig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFCircularTrig.m; sourceTree = "<group>"; };
+		2638776B1857686D00069D17 /* EFCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFCircularSlider.h; sourceTree = "<group>"; };
+		2638776C1857686D00069D17 /* EFCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFCircularSlider.m; sourceTree = "<group>"; };
 		73AA2226184F85BF0019641B /* EFCircularSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EFCircularSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73AA2229184F85BF0019641B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		73AA222B184F85BF0019641B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -116,10 +108,8 @@
 		2638776A1857686D00069D17 /* EFCircularSlider */ = {
 			isa = PBXGroup;
 			children = (
-				37B6A22C196476AD00E2D620 /* EFCircularSlider.h */,
-				37B6A22D196476AD00E2D620 /* EFCircularSlider.m */,
-				37B6A22E196476AD00E2D620 /* EFCircularTrig.h */,
-				37B6A22F196476AD00E2D620 /* EFCircularTrig.m */,
+				2638776B1857686D00069D17 /* EFCircularSlider.h */,
+				2638776C1857686D00069D17 /* EFCircularSlider.m */,
 			);
 			name = EFCircularSlider;
 			path = ../../EFCircularSlider;
@@ -210,8 +200,6 @@
 				73AA22721850F3720019641B /* EFDemoListViewController.m */,
 				73AA2277185101F60019641B /* EFDoubleCircleViewController.h */,
 				73AA2278185101F60019641B /* EFDoubleCircleViewController.m */,
-				3778DB5719660E8E0082EC83 /* EFTwoSlidersAutoLayoutViewController.h */,
-				3778DB5819660E8E0082EC83 /* EFTwoSlidersAutoLayoutViewController.m */,
 				73AA227A185102560019641B /* EFWithLabelsViewController.h */,
 				73AA227B185102560019641B /* EFWithLabelsViewController.m */,
 				9F44EB0218DC32FD00CA0945 /* EFBigLineViewController.h */,
@@ -330,14 +318,12 @@
 				73AA2276185100B70019641B /* EFBigCircleHandleViewController.m in Sources */,
 				73AA2282185103BC0019641B /* EFTimePickerViewController.m in Sources */,
 				73AA227F1851030B0019641B /* EFSnapToLabelsViewController.m in Sources */,
-				37B6A232196476AD00E2D620 /* EFCircularTrig.m in Sources */,
 				9F44EB0418DC32FD00CA0945 /* EFBigLineViewController.m in Sources */,
 				73AA2279185101F60019641B /* EFDoubleCircleViewController.m in Sources */,
 				73AA2240184F85BF0019641B /* EFBasicViewController.m in Sources */,
-				3778DB5919660E8E0082EC83 /* EFTwoSlidersAutoLayoutViewController.m in Sources */,
 				73AA2236184F85BF0019641B /* main.m in Sources */,
-				37B6A230196476AD00E2D620 /* EFCircularSlider.m in Sources */,
 				73AA22731850F3720019641B /* EFDemoListViewController.m in Sources */,
+				2638776D1857686D00069D17 /* EFCircularSlider.m in Sources */,
 				73AA223A184F85BF0019641B /* EFAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,8 +332,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37B6A231196476AD00E2D620 /* EFCircularSlider.m in Sources */,
-				37B6A233196476AD00E2D620 /* EFCircularTrig.m in Sources */,
 				73AA2255184F85BF0019641B /* EFCircularSliderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

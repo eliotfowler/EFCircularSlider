@@ -31,7 +31,7 @@
     CGRect sliderFrame = CGRectMake(60, 150, 200, 200);
     EFCircularSlider* circularSlider = [[EFCircularSlider alloc] initWithFrame:sliderFrame];
     
-    NSArray* labels = @[@"Beetle", @"Cow", @"Donkey", @"Eagle", @"Ant"];
+    NSArray* labels = @[@"B", @"C", @"D", @"E", @"A"];
     [circularSlider setInnerMarkingLabels:labels];
     
     [self.view addSubview:circularSlider];
