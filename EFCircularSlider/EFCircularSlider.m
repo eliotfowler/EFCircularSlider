@@ -33,6 +33,7 @@ static const CGFloat kFitFrameRadius = -1.0;
 @implementation EFCircularSlider
 
 @synthesize radius = _radius;
+@synthesize currentValue = _currentValue;
 
 #pragma mark - Initialisation
 - (id)init
@@ -154,8 +155,10 @@ static const CGFloat kFitFrameRadius = -1.0;
              @"currentValue (%.2f) must be between self.minimuValue (%.2f) and self.maximumValue (%.2f)",
               currentValue, self.minimumValue, self.maximumValue);
     
+    _currentValue = currentValue;
+    
     // Update the angleFromNorth to match this newly set value
-    self.angleFromNorth = (currentValue * 360)/(self.maximumValue - self.minimumValue);
+    self.angleFromNorth = (currentValue * 360.0)/(self.maximumValue - self.minimumValue);
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
@@ -181,7 +184,8 @@ static const CGFloat kFitFrameRadius = -1.0;
  */
 -(float) currentValue
 {
-    return (self.angleFromNorth * (self.maximumValue - self.minimumValue))/360.0f;
+//    return (self.angleFromNorth * (self.maximumValue - self.minimumValue))/360.0f;
+    return _currentValue;
 }
 
 -(CGFloat) radius
@@ -518,6 +522,8 @@ static const CGFloat kFitFrameRadius = -1.0;
     
     CGPoint lastPoint = [touch locationInView:self];
     [self moveHandle:lastPoint];
+    
+    _currentValue = (self.angleFromNorth * (self.maximumValue - self.minimumValue)) / 360.0f;
     [self sendActionsForControlEvents:UIControlEventValueChanged];
     
     return YES;
