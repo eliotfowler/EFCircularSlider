@@ -503,6 +503,13 @@ static const CGFloat kFitFrameRadius = -1.0;
 }
 
 #pragma mark - UIControl functions
+-(BOOL) beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
+    [super beginTrackingWithTouch:touch withEvent:event];
+    if ([_delegate respondsToSelector:@selector(circularSliderBeginWith:andCurrentValue:andMinimumValue:andMaximumValue:)]) {
+        [self.delegate circularSliderBeginWith:self andCurrentValue:self.currentValue andMinimumValue:_minimumValue andMaximumValue:_maximumValue];
+    }
+    return YES;
+}
 
 -(BOOL) continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
@@ -510,6 +517,9 @@ static const CGFloat kFitFrameRadius = -1.0;
     
     CGPoint lastPoint = [touch locationInView:self];
     [self moveHandle:lastPoint];
+    if ([_delegate respondsToSelector:@selector(circularSliderContinueWith:andCurrentValue:andMinimumValue:andMaximumValue:)]) {
+        [self.delegate circularSliderContinueWith:self andCurrentValue:self.currentValue andMinimumValue:_minimumValue andMaximumValue:_maximumValue];
+    }
     [self sendActionsForControlEvents:UIControlEventValueChanged];
     
     return YES;
@@ -536,6 +546,9 @@ static const CGFloat kFitFrameRadius = -1.0;
         }
         self.angleFromNorth = floor([EFCircularTrig angleRelativeToNorthFromPoint:self.centerPoint
                                                                              toPoint:bestGuessPoint]);
+        if ([_delegate respondsToSelector:@selector(circularSliderEndWith:andCurrentValue:andMinimumValue:andMaximumValue:)]) {
+            [self.delegate circularSliderEndWith:self andCurrentValue:self.currentValue andMinimumValue:_minimumValue andMaximumValue:_maximumValue];
+        }
         [self setNeedsDisplay];
     }
 }
