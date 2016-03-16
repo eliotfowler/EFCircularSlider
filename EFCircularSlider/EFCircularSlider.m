@@ -59,6 +59,14 @@ static const CGFloat kFitFrameRadius = -1.0;
     return self;
 }
 
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    if((self = [super initWithCoder:aDecoder])) {
+        [self initDefaultValuesWithRadius:kFitFrameRadius];
+    }
+    return self;
+}
+
 -(void) initDefaultValuesWithRadius:(CGFloat)radius
 {
     _radius        = radius;
@@ -77,6 +85,7 @@ static const CGFloat kFitFrameRadius = -1.0;
     
     self.backgroundColor = [UIColor clearColor];
 }
+
 
 #pragma mark - Public setter overrides
 -(void) setLineWidth:(int)lineWidth
