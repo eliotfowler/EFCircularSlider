@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 # Source Info
   s.platform     =  :ios, '7.0'
   s.source       =  { :git => 'https://github.com/eliotfowler/EFCircularSlider.git', :tag => "0.2.0" }
-  s.source_files = 'EFCircularSlider/EFCircularSlider.{h,m}'
+  s.source_files = 'EFCircularSlider/**/*.{h,m}'
 
   s.requires_arc = true
 end

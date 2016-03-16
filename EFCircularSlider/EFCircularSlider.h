@@ -11,6 +11,7 @@
 /**
  *  Class used to define a circular control with a handle that can be moved around the circumference to represent a value
  */
+IB_DESIGNABLE
 @interface EFCircularSlider : UIControl
 
 typedef enum : NSUInteger {
@@ -38,22 +39,22 @@ typedef enum : NSUInteger {
 /**
  *  @property Value at North/midnight (start)
  */
-@property (nonatomic) float minimumValue;
+@property (nonatomic) IBInspectable float minimumValue;
 /**
  *  @property Value at North/midnight (end)
  */
-@property (nonatomic) float maximumValue;
+@property (nonatomic) IBInspectable float maximumValue;
 /**
  *  @property Current value between North/midnight (start) and North/midnight (end) - clockwise direction
  */
-@property (nonatomic) float currentValue;
+@property (nonatomic) IBInspectable float currentValue;
 
 
 #pragma mark - Labels
 /**
  *  @property BOOL indicating whether values snap to nearest label
  */
-@property (nonatomic) BOOL snapToLabels;
+@property (nonatomic) IBInspectable BOOL snapToLabels;
 /**
  *  Note: The LAST label will appear at North/midnight
  *        The FIRST label will appear at the first interval after North/midnight
@@ -67,30 +68,30 @@ typedef enum : NSUInteger {
 /**
  *  @property Width of the line to draw for slider
  */
-@property (nonatomic) int lineWidth;
+@property (nonatomic) IBInspectable int lineWidth;
 /**
  *  @property Color of filled portion of line (from North/midnight start to currentValue)
  */
-@property (nonatomic, strong) UIColor* filledColor;
+@property (nonatomic, strong) IBInspectable UIColor* filledColor;
 /**
  *  @property Color of unfilled portion of line (from currentValue to North/midnight end)
  */
-@property (nonatomic, strong) UIColor* unfilledColor;
+@property (nonatomic, strong) IBInspectable UIColor* unfilledColor;
 /**
  *  Note: If this property is not set, filledColor will be used.
  *        If handleType is semiTransparent*, specified color will override this property.
  *
  *  @property Color of the handle
  */
-@property (nonatomic, strong) UIColor* handleColor;
+@property (nonatomic, strong) IBInspectable UIColor* handleColor;
 /**
  *  @property Font of the inner marking labels within the circle
  */
-@property (nonatomic, strong) UIFont*  labelFont;
+@property (nonatomic, strong) IBInspectable UIFont*  labelFont;
 /**
  *  @property Color of the inner marking labels within the circle
  */
-@property (nonatomic, strong) UIColor* labelColor;
+@property (nonatomic, strong) IBInspectable UIColor* labelColor;
 /**
  *  Note: A negative value will move the label closer to the center. A positive value will move the label closer to the circumference
  *  @property Value with which to displace all labels along radial line from center to slider circumference.
@@ -99,6 +100,6 @@ typedef enum : NSUInteger {
 /**
  *  @property Type of the handle to display to represent draggable current value
  */
-@property (nonatomic) CircularSliderHandleType handleType;
+@property (nonatomic) CircularSliderHandleType IBInspectable handleType;
 
 @end
