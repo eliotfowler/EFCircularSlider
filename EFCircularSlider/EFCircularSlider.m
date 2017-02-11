@@ -234,6 +234,10 @@
 
 -(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
     [super endTrackingWithTouch:touch withEvent:event];
+
+    CGPoint lastPoint = [touch locationInView:self];
+    [self moveHandle:lastPoint];
+
     if(_snapToLabels && labelsEvenSpacing != nil) {
         CGFloat newAngle=0;
         float minDist = 360;
