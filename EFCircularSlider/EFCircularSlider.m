@@ -43,6 +43,7 @@
     _handleType = EFSemiTransparentWhiteCircle;
     _labelColor = [UIColor redColor];
     _labelDisplacement = 2;
+    _slideOnTouch = NO;
     
     self.backgroundColor = [UIColor clearColor];
 }
@@ -235,8 +236,10 @@
 -(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
     [super endTrackingWithTouch:touch withEvent:event];
 
-    CGPoint lastPoint = [touch locationInView:self];
-    [self moveHandle:lastPoint];
+    if (_slideOnTouch) {
+        CGPoint lastPoint = [touch locationInView:self];
+        [self moveHandle:lastPoint];
+    }
 
     if(_snapToLabels && labelsEvenSpacing != nil) {
         CGFloat newAngle=0;

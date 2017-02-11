@@ -34,6 +34,7 @@ typedef NS_ENUM(NSInteger, EFHandleType) {
 @property (nonatomic, strong) UIColor* labelColor;
 @property (nonatomic, assign) NSInteger labelDisplacement;
 @property (nonatomic) BOOL snapToLabels;
+@property (nonatomic) BOOL slideOnTouch;
 
 
 

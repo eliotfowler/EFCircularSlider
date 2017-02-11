@@ -30,6 +30,7 @@
 	
     CGRect sliderFrame = CGRectMake(60, 150, 200, 200);
     EFCircularSlider* circularSlider = [[EFCircularSlider alloc] initWithFrame:sliderFrame];
+    circularSlider.slideOnTouch = YES;
     
     NSArray* labels = @[@"B", @"C", @"D", @"E", @"A"];
     [circularSlider setInnerMarkingLabels:labels];
