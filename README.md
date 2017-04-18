@@ -53,9 +53,9 @@ Options
 
 EFCircularSlider is made to be very easy to style and customize.
 
-###Properties
+### Properties
 
-####minimumValue:(float) - Default: 0.0f
+#### minimumValue:(float) - Default: 0.0f
 
 When the slider is at the very top position, it will set the currentValue to this. 
 
@@ -65,7 +65,7 @@ You can set the minimum value with:
 circularSlider.minimumValue = 1.0f;
 ```
 
-####maximumValue:(float) - Default 100.0f
+#### maximumValue:(float) - Default 100.0f
 
 With EFCircularSlider, the currentValue increases as you drag the slider clockwise. Therefore, when 
 the slider is just to the left of the very top position, it will approach (but never reach) this. 
@@ -76,7 +76,7 @@ You can set the maximum value with:
 circularSlider.minimumValue = 100.0f;
 ```
 
-####currentValue:(float) - Default 0.0f
+#### currentValue:(float) - Default 0.0f
 
 Whenever the slider changes position, this value will change. It will be a normalized value based on the minimuimValue and maximumValue properties.
 
@@ -86,7 +86,7 @@ You can get the currentValue with:
 float val = circularSlider.currentValue;
 ```
 
-####lineWidth:(int) - Default 5
+#### lineWidth:(int) - Default 5
 
 This determines the width of the arc that makes up the slider. This will set the value both for the unfilled arc (the background) and the arc that shows how much of the slider has been slid across. **Currently, changing the lineWidth more than a few pixels causes adverse side effects, mainly with the handle.**
 
@@ -96,7 +96,7 @@ You can modify the lineWidth with:
 circularSlider.lineWidth = 6;
 ```
 
-####handleColor:(UIColor*) - Default [UIColor redColor]
+#### handleColor:(UIColor*) - Default [UIColor redColor]
 
 The handle is the part of the slider that you drag with your finger.
 
@@ -110,7 +110,7 @@ CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;
 circularSlider.handleColor = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
 ```
 
-####handleType:(EFHandleType) - Default EFSemiTransparentWhiteCircle
+#### handleType:(EFHandleType) - Default EFSemiTransparentWhiteCircle
 
 EFCircularSlider comes with 4 types of handles:
 
@@ -126,7 +126,7 @@ You can change the handleType with:
 circularSlider.handleType = EFDoubleCircleWithClosedCenter;
 ```
 
-####unfilledColor:(UIColor*) - Default [UIColor blackColor]
+#### unfilledColor:(UIColor*) - Default [UIColor blackColor]
 
 This is the color that will show if the slider is set to its minimum value.
 
@@ -136,7 +136,7 @@ You can modify the unfilledColor with:
 circularSlider.unfilledColor = [UIColor purpleColor];
 ```
 
-####filledColor:(UIColor*) - Default [UIColor redColor]
+#### filledColor:(UIColor*) - Default [UIColor redColor]
 
 This is the color that will show between the minimum value and the currentValue.
 
@@ -146,7 +146,7 @@ You can modify the filledColor with:
 circularSlider.unfilledColor = [UIColor purpleColor];
 ```
 
-####labelFont:(UIFont*) - Default [UIFont systemFontOfSize:10.0f]
+#### labelFont:(UIFont*) - Default [UIFont systemFontOfSize:10.0f]
 
 This is the font that the labels will have if you decide to set inner marking labels (more on this down the page). 
 
@@ -158,7 +158,7 @@ circularSlider.labelFont = [UIFont systemFontOfSize:14.0f];
 
 **Note this will have no effect if you have not passed in the labels that you want to add**
 
-####snapToLabels:(BOOL) - Default NO
+#### snapToLabels:(BOOL) - Default NO
 
 If this is set to YES, once finish dragging the slider, it will snap to the closest label and subsequently set the current value to what it would be at that label, not where you dragged it.
 
@@ -170,9 +170,9 @@ circularSlider.snapToLabels = YES;
 
 **Note this will have no effect if you have not passed in the labels that you want to add**
 
-###Functions
+### Functions
 
-####-(void)setInnerMarkingLabels:(NSArray*)labels
+#### -(void)setInnerMarkingLabels:(NSArray*)labels
 
 You can send this method an array of labels and they will show up on the inside of the slider. There is currently no way to specify the spacing between the labels and therefore they will be evenly spaced out. If you choose to include labels on your slider, you will then have the option to set the font of the label as well as if the slider should snap to the closest label position after the value changes.
 
